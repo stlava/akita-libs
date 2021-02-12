@@ -1,0 +1,387 @@
+method: <
+  id: <
+    api_type: HTTP_REST
+  >
+  args: <
+    key: "-H4MP_6DlkM="
+    value: <
+      primitive: <
+        string_value: <
+          value: "YAc1kZ8ZwDbuz1Dd-F4JPjQ5VDtVIipURWWCK8nzE0k="
+        >
+        formats: <
+          key: "uuid"
+          value: true
+        >
+        format_kind: "unique_id"
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Postman-Token"
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "1171VHmv-C0="
+    value: <
+      primitive: <
+        string_value: <
+          value: "rmtCUmzwX_QjNPI1oBp9JfEfQ5S8YUh8KsoRymVq8Lk="
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "User-Agent"
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "33-lJPUZfwQ="
+    value: <
+      primitive: <
+        string_value: <
+          value: "8H8cYjvu6Qe813eLXIyBb5ZYxum57Z2tz9oqoJGhYZk="
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Connection"
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "JPzytMHt5hA="
+    value: <
+      struct: <
+        fields: <
+          key: "name"
+          value: <
+            primitive: <
+              string_value: <
+                value: "C0cYOm2_2m_UyISqfrYFsF8b2IJ-FU-SzIkFiPWFT2g="
+              >
+            >
+          >
+        >
+      >
+      meta: <
+        http: <
+          body: <
+            content_type: JSON
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "Nqn0QafTZl4="
+    value: <
+      primitive: <
+        string_value: <
+          value: "OoHOGJO15pIp1nh_Oe1Oo7DPlxe8uJW5CnUrjYwhdCk="
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Accept-Encoding"
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "QrE09bRLpsc="
+    value: <
+      primitive: <
+        string_value: <
+          value: "74kHTyTjP9fhwxZ3NcTV6KYE8bHM1Dtj2kAkaV6PTi0="
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Accept"
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "PhIlTDl7wic="
+    value: <
+      primitive: <
+        int64_value: <
+          value: 4424674504013139122
+        >
+      >
+      meta: <
+        http: <
+          path: <
+            key: "arg4"
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "TjX28UgA0K4="
+    value: <
+      primitive: <
+        uint64_value: <
+          value: 7736390797214311779
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Content-Length"
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "x-vv1wKbqKc="
+    value: <
+      primitive: <
+        string_value: <
+          value: "0pXcFexQgg1jQnwmc7_U4iE6l0uoaOXg1XCIpwxSnFo="
+        >
+      >
+      meta: <
+        http: <
+          auth: <
+            type: BEARER
+          >
+        >
+      >
+    >
+  >
+  responses: <
+    key: "-qzOtCwe2LA="
+    value: <
+      primitive: <
+        string_value: <
+          value: "qAwwhgNLeRoAI0kDqZosBCv8J-EqOVkhyA0ZH_XyKt0="
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Server"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "5PBDgMBTG0Y="
+    value: <
+      primitive: <
+        string_value: <
+          value: "x1nCOOVYnd_WqFEiRQ8nWz1QQPUUJRWsiexb2Sk14Tw="
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Vary"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "7bC7cN2JwZE="
+    value: <
+      struct: <
+        fields: <
+          key: "message"
+          value: <
+            primitive: <
+              string_value: <
+                value: "EuXEEpRL0z7u5YWNO0RD_ZNDmFvkL4WP08bXq1sRY-g="
+              >
+            >
+          >
+        >
+      >
+      meta: <
+        http: <
+          body: <
+            content_type: JSON
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "ANJy1rqWEFc="
+    value: <
+      primitive: <
+        uint64_value: <
+          value: 17521097186713251757
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Content-Length"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "FceL8eT4bwY="
+    value: <
+      primitive: <
+        string_value: <
+          value: "8H8cYjvu6Qe813eLXIyBb5ZYxum57Z2tz9oqoJGhYZk="
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Connection"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "Hyvuaa0HWK0="
+    value: <
+      primitive: <
+        string_value: <
+          value: "SiEOYviishiQ1IKdFhElNkSRZUF0PIQDSaFeg2JxtZw="
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Frame-Options"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "IvMSa45gWH0="
+    value: <
+      primitive: <
+        float_value: <
+          value: -7.698666e+32
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Runtime"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "PfVXv-bXT0Q="
+    value: <
+      primitive: <
+        string_value: <
+          value: "o0gCMB8LI7YuesSebW0o9_BJu36UTPg-ph_CXUDUQtM="
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Request-Id"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "Uj1GJVePHM8="
+    value: <
+      primitive: <
+        string_value: <
+          value: "OVMdF2d7cCKfZFlD-_t1VUl4ecE3V7oAueCVeJGn6zg="
+        >
+        formats: <
+          key: "rfc_2822"
+          value: true
+        >
+        format_kind: "datetime"
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Date"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "gUudf8fSsXA="
+    value: <
+      primitive: <
+        string_value: <
+          value: "u3O-JJdAHpn31iT_l9vMKPcxAqfkD35dYao3uI3BYr0="
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Content-Type-Options"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "wbAq5ev1Otg="
+    value: <
+      primitive: <
+        string_value: <
+          value: "zDqkmJ0b5qY0pMVTuyDAuwUWtWw0g7Zhcan-8eO9wag="
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Cache-Control"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  meta: <
+    http: <
+      method: "DELETE"
+      path_template: "/api/v4/projects/{arg4}"
+      host: "localhost:8080"
+    >
+  >
+>

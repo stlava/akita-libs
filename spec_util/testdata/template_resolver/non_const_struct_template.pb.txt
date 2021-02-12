@@ -1,0 +1,31 @@
+# api_spec.DataTemplate proto
+
+# Struct template that contains a reference, making it not a const.
+struct_template: {
+  field_templates: {
+    key: "a"
+    value: {
+      value: {
+        primitive: {
+          string_value: {
+            value: "cd1c9353-eeeb-4243-aa92-b7511b352197"
+          }
+        }
+      }
+    }
+  }
+  field_templates: {
+    key: "ref"
+    value: {
+      ref: {
+        method_index: 1
+        response_ref: {
+          key: "foo"
+          data_ref: {
+            primitive_ref: {}
+          }
+        }
+      }
+    }
+  }
+}

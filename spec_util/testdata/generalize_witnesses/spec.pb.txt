@@ -1,0 +1,3740 @@
+methods: <
+  id: <
+    api_type: HTTP_REST
+  >
+  args: <
+    key: "-Q7ZgTguy1k="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          auth: <
+            type: BEARER
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "C6VfELNuBYQ="
+    value: <
+      primitive: <
+        string_value: <
+        >
+        formats: <
+          key: "uuid"
+          value: true
+        >
+        format_kind: "unique_id"
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Postman-Token"
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "O8j_plub9mY="
+    value: <
+      struct: <
+        fields: <
+          key: "name"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+      >
+      meta: <
+        http: <
+          body: <
+            content_type: JSON
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "y0HmMXfg67c="
+    value: <
+      primitive: <
+        int64_value: <
+        >
+      >
+      meta: <
+        http: <
+          path: <
+            key: "arg4"
+          >
+        >
+      >
+    >
+  >
+  responses: <
+    key: "9RYdj9YEad4="
+    value: <
+      primitive: <
+        float_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Runtime"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "P7uijzd7vUM="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Content-Type-Options"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "XSzHrmyHUJM="
+    value: <
+      struct: <
+        fields: <
+          key: "message"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+      >
+      meta: <
+        http: <
+          body: <
+            content_type: JSON
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "_SNJYZTA6eE="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Frame-Options"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "aNtcqtQDEE4="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Server"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "ePUS2gCC6yM="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Vary"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "o6tj34boLUw="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Cache-Control"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  responses: <
+    key: "twh77DDXEas="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Request-Id"
+          >
+          response_code: 202
+        >
+      >
+    >
+  >
+  meta: <
+    http: <
+      method: "DELETE"
+      path_template: "/api/v4/projects/{arg4}"
+      host: "localhost:8080"
+    >
+  >
+>
+methods: <
+  id: <
+    api_type: HTTP_REST
+  >
+  args: <
+    key: "-Q7ZgTguy1k="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          auth: <
+            type: BEARER
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "C6VfELNuBYQ="
+    value: <
+      primitive: <
+        string_value: <
+        >
+        formats: <
+          key: "uuid"
+          value: true
+        >
+        format_kind: "unique_id"
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Postman-Token"
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "O8j_plub9mY="
+    value: <
+      struct: <
+        fields: <
+          key: "name"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+      >
+      meta: <
+        http: <
+          body: <
+            content_type: JSON
+          >
+        >
+      >
+    >
+  >
+  responses: <
+    key: "69VfHXIb5Wo="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Cache-Control"
+          >
+          response_code: 201
+        >
+      >
+    >
+  >
+  responses: <
+    key: "M-5nDlcrSfI="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Vary"
+          >
+          response_code: 201
+        >
+      >
+    >
+  >
+  responses: <
+    key: "TSqqe4_ueVo="
+    value: <
+      primitive: <
+        float_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Runtime"
+          >
+          response_code: 201
+        >
+      >
+    >
+  >
+  responses: <
+    key: "YLVDiRNxxXw="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Content-Type-Options"
+          >
+          response_code: 201
+        >
+      >
+    >
+  >
+  responses: <
+    key: "_p8EH5-YHXA="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Etag"
+          >
+          response_code: 201
+        >
+      >
+    >
+  >
+  responses: <
+    key: "bu4h8i0jpVc="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Strict-Transport-Security"
+          >
+          response_code: 201
+        >
+      >
+    >
+  >
+  responses: <
+    key: "buu1PuW5hCI="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Request-Id"
+          >
+          response_code: 201
+        >
+      >
+    >
+  >
+  responses: <
+    key: "nMoesIb_dl8="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Frame-Options"
+          >
+          response_code: 201
+        >
+      >
+    >
+  >
+  responses: <
+    key: "ptgtNxtCtsA="
+    value: <
+      struct: <
+        fields: <
+          key: "_links"
+          value: <
+            struct: <
+              fields: <
+                key: "events"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+              fields: <
+                key: "issues"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+              fields: <
+                key: "labels"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+              fields: <
+                key: "members"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+              fields: <
+                key: "merge_requests"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+              fields: <
+                key: "repo_branches"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+              fields: <
+                key: "self"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+            >
+          >
+        >
+        fields: <
+          key: "allow_merge_on_skipped_pipeline"
+          value: <
+            optional: <
+              none: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "archived"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "auto_cancel_pending_pipelines"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "auto_devops_deploy_strategy"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "auto_devops_enabled"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "autoclose_referenced_issues"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "avatar_url"
+          value: <
+            optional: <
+              none: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "build_coverage_regex"
+          value: <
+            optional: <
+              none: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "build_git_strategy"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "build_timeout"
+          value: <
+            primitive: <
+              int64_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "builds_access_level"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "can_create_merge_request_in"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "ci_config_path"
+          value: <
+            optional: <
+              none: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "ci_default_git_depth"
+          value: <
+            primitive: <
+              int64_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "container_expiration_policy"
+          value: <
+            struct: <
+              fields: <
+                key: "cadence"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "enabled"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "keep_n"
+                value: <
+                  primitive: <
+                    int64_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "name_regex"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "name_regex_keep"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "next_run_at"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "rfc_3339"
+                      value: true
+                    >
+                    format_kind: "datetime"
+                  >
+                >
+              >
+              fields: <
+                key: "older_than"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+            >
+          >
+        >
+        fields: <
+          key: "container_registry_enabled"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "created_at"
+          value: <
+            primitive: <
+              string_value: <
+              >
+              formats: <
+                key: "rfc_3339"
+                value: true
+              >
+              format_kind: "datetime"
+            >
+          >
+        >
+        fields: <
+          key: "creator_id"
+          value: <
+            primitive: <
+              int64_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "default_branch"
+          value: <
+            optional: <
+              none: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "description"
+          value: <
+            optional: <
+              none: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "emails_disabled"
+          value: <
+            optional: <
+              none: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "empty_repo"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "forking_access_level"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "forks_count"
+          value: <
+            primitive: <
+              int64_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "http_url_to_repo"
+          value: <
+            primitive: <
+              string_value: <
+              >
+              formats: <
+                key: "url"
+                value: true
+              >
+              format_kind: "uri"
+            >
+          >
+        >
+        fields: <
+          key: "id"
+          value: <
+            primitive: <
+              int64_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "import_error"
+          value: <
+            optional: <
+              none: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "import_status"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "issues_access_level"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "issues_enabled"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "jobs_enabled"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "last_activity_at"
+          value: <
+            primitive: <
+              string_value: <
+              >
+              formats: <
+                key: "rfc_3339"
+                value: true
+              >
+              format_kind: "datetime"
+            >
+          >
+        >
+        fields: <
+          key: "lfs_enabled"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "merge_method"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "merge_requests_access_level"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "merge_requests_enabled"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "name"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "name_with_namespace"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "namespace"
+          value: <
+            struct: <
+              fields: <
+                key: "avatar_url"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+              fields: <
+                key: "full_path"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "id"
+                value: <
+                  primitive: <
+                    int64_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "kind"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "name"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "parent_id"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "path"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "web_url"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+            >
+          >
+        >
+        fields: <
+          key: "only_allow_merge_if_all_discussions_are_resolved"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "only_allow_merge_if_pipeline_succeeds"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "open_issues_count"
+          value: <
+            primitive: <
+              int64_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "owner"
+          value: <
+            struct: <
+              fields: <
+                key: "avatar_url"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+              fields: <
+                key: "id"
+                value: <
+                  primitive: <
+                    int64_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "name"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "state"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "username"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "web_url"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+            >
+          >
+        >
+        fields: <
+          key: "pages_access_level"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "path"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "path_with_namespace"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "printing_merge_request_link_enabled"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "public_jobs"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "readme_url"
+          value: <
+            optional: <
+              none: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "remove_source_branch_after_merge"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "repository_access_level"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "request_access_enabled"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "resolve_outdated_diff_discussions"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "runners_token"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "shared_runners_enabled"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "shared_with_groups"
+          value: <
+            list: <
+            >
+          >
+        >
+        fields: <
+          key: "snippets_access_level"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "snippets_enabled"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "ssh_url_to_repo"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "star_count"
+          value: <
+            primitive: <
+              int64_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "suggestion_commit_message"
+          value: <
+            optional: <
+              none: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "tag_list"
+          value: <
+            list: <
+            >
+          >
+        >
+        fields: <
+          key: "visibility"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "web_url"
+          value: <
+            primitive: <
+              string_value: <
+              >
+              formats: <
+                key: "url"
+                value: true
+              >
+              format_kind: "uri"
+            >
+          >
+        >
+        fields: <
+          key: "wiki_access_level"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        fields: <
+          key: "wiki_enabled"
+          value: <
+            primitive: <
+              bool_value: <
+              >
+            >
+          >
+        >
+      >
+      meta: <
+        http: <
+          body: <
+            content_type: JSON
+          >
+          response_code: 201
+        >
+      >
+    >
+  >
+  responses: <
+    key: "qQ5rWPuxs0o="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Server"
+          >
+          response_code: 201
+        >
+      >
+    >
+  >
+  responses: <
+    key: "v7mMTIhdKqs="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Referrer-Policy"
+          >
+          response_code: 201
+        >
+      >
+    >
+  >
+  meta: <
+    http: <
+      method: "POST"
+      path_template: "/api/v4/projects"
+      host: "localhost:8080"
+    >
+  >
+>
+methods: <
+  id: <
+    api_type: HTTP_REST
+  >
+  args: <
+    key: "-Q7ZgTguy1k="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          auth: <
+            type: BEARER
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "C6VfELNuBYQ="
+    value: <
+      primitive: <
+        string_value: <
+        >
+        formats: <
+          key: "uuid"
+          value: true
+        >
+        format_kind: "unique_id"
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Postman-Token"
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "O8j_plub9mY="
+    value: <
+      struct: <
+        fields: <
+          key: "name"
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+      >
+      meta: <
+        http: <
+          body: <
+            content_type: JSON
+          >
+        >
+      >
+    >
+  >
+  args: <
+    key: "jX1cqTk1FwI="
+    value: <
+      oneof: <
+        options: <
+          key: "0ChzXURDSRY="
+          value: <
+            primitive: <
+              string_value: <
+              >
+            >
+          >
+        >
+        options: <
+          key: "va5tP-fnZF8="
+          value: <
+            primitive: <
+              int64_value: <
+              >
+            >
+          >
+        >
+        potential_conflict: true
+      >
+      meta: <
+        http: <
+          path: <
+            key: "arg4"
+          >
+        >
+      >
+    >
+  >
+  responses: <
+    key: "-wsqlItiM9k="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Link"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "04imxQBmwbs="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Strict-Transport-Security"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "8hxKYc8Y3xY="
+    value: <
+      primitive: <
+        int64_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Page"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "9kxgQS-ZhWw="
+    value: <
+      primitive: <
+        int64_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Total"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "9vPtSxXPaVw="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Content-Type-Options"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "BjrLD5Mz5Eg="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Server"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "Ct_kPyK_Tz0="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Frame-Options"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "DU1ggCseAkY="
+    value: <
+      primitive: <
+        float_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Runtime"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "DjSaekE3mb0="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Vary"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "M-4eDq68IQQ="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Next-Page"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "OtMVv64j3sc="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Prev-Page"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "QldXMpMzaEo="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Referrer-Policy"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "XOIWJY1JAvI="
+    value: <
+      oneof: <
+        options: <
+          key: "KgiVik4upYA="
+          value: <
+            list: <
+              elems: <
+                struct: <
+                  fields: <
+                    key: "_links"
+                    value: <
+                      struct: <
+                        fields: <
+                          key: "events"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                              formats: <
+                                key: "url"
+                                value: true
+                              >
+                              format_kind: "uri"
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "issues"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                              formats: <
+                                key: "url"
+                                value: true
+                              >
+                              format_kind: "uri"
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "labels"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                              formats: <
+                                key: "url"
+                                value: true
+                              >
+                              format_kind: "uri"
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "members"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                              formats: <
+                                key: "url"
+                                value: true
+                              >
+                              format_kind: "uri"
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "merge_requests"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                              formats: <
+                                key: "url"
+                                value: true
+                              >
+                              format_kind: "uri"
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "repo_branches"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                              formats: <
+                                key: "url"
+                                value: true
+                              >
+                              format_kind: "uri"
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "self"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                              formats: <
+                                key: "url"
+                                value: true
+                              >
+                              format_kind: "uri"
+                            >
+                          >
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "allow_merge_on_skipped_pipeline"
+                    value: <
+                      optional: <
+                        none: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "archived"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "auto_cancel_pending_pipelines"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "auto_devops_deploy_strategy"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "auto_devops_enabled"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "autoclose_referenced_issues"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "avatar_url"
+                    value: <
+                      optional: <
+                        none: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "build_coverage_regex"
+                    value: <
+                      optional: <
+                        none: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "build_timeout"
+                    value: <
+                      primitive: <
+                        int64_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "builds_access_level"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "can_create_merge_request_in"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "ci_config_path"
+                    value: <
+                      optional: <
+                        none: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "ci_default_git_depth"
+                    value: <
+                      primitive: <
+                        int64_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "container_expiration_policy"
+                    value: <
+                      struct: <
+                        fields: <
+                          key: "cadence"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "enabled"
+                          value: <
+                            primitive: <
+                              bool_value: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "keep_n"
+                          value: <
+                            primitive: <
+                              int64_value: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "name_regex"
+                          value: <
+                            optional: <
+                              none: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "name_regex_keep"
+                          value: <
+                            optional: <
+                              none: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "next_run_at"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                              formats: <
+                                key: "rfc_3339"
+                                value: true
+                              >
+                              format_kind: "datetime"
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "older_than"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                            >
+                          >
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "container_registry_enabled"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "created_at"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                        formats: <
+                          key: "rfc_3339"
+                          value: true
+                        >
+                        format_kind: "datetime"
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "creator_id"
+                    value: <
+                      primitive: <
+                        int64_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "default_branch"
+                    value: <
+                      optional: <
+                        none: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "description"
+                    value: <
+                      optional: <
+                        none: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "emails_disabled"
+                    value: <
+                      optional: <
+                        none: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "empty_repo"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "forking_access_level"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "forks_count"
+                    value: <
+                      primitive: <
+                        int64_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "http_url_to_repo"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                        formats: <
+                          key: "url"
+                          value: true
+                        >
+                        format_kind: "uri"
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "id"
+                    value: <
+                      primitive: <
+                        int64_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "import_status"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "issues_access_level"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "issues_enabled"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "jobs_enabled"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "last_activity_at"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                        formats: <
+                          key: "rfc_3339"
+                          value: true
+                        >
+                        format_kind: "datetime"
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "lfs_enabled"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "merge_method"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "merge_requests_access_level"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "merge_requests_enabled"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "name"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "name_with_namespace"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "namespace"
+                    value: <
+                      struct: <
+                        fields: <
+                          key: "avatar_url"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                              formats: <
+                                key: "url"
+                                value: true
+                              >
+                              format_kind: "uri"
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "full_path"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "id"
+                          value: <
+                            primitive: <
+                              int64_value: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "kind"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "name"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "parent_id"
+                          value: <
+                            optional: <
+                              none: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "path"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "web_url"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                              formats: <
+                                key: "url"
+                                value: true
+                              >
+                              format_kind: "uri"
+                            >
+                          >
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "only_allow_merge_if_all_discussions_are_resolved"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "only_allow_merge_if_pipeline_succeeds"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "open_issues_count"
+                    value: <
+                      primitive: <
+                        int64_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "owner"
+                    value: <
+                      struct: <
+                        fields: <
+                          key: "avatar_url"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                              formats: <
+                                key: "url"
+                                value: true
+                              >
+                              format_kind: "uri"
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "id"
+                          value: <
+                            primitive: <
+                              int64_value: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "name"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "state"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "username"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "web_url"
+                          value: <
+                            primitive: <
+                              string_value: <
+                              >
+                              formats: <
+                                key: "url"
+                                value: true
+                              >
+                              format_kind: "uri"
+                            >
+                          >
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "pages_access_level"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "path"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "path_with_namespace"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "permissions"
+                    value: <
+                      struct: <
+                        fields: <
+                          key: "group_access"
+                          value: <
+                            optional: <
+                              none: <
+                              >
+                            >
+                          >
+                        >
+                        fields: <
+                          key: "project_access"
+                          value: <
+                            struct: <
+                              fields: <
+                                key: "access_level"
+                                value: <
+                                  primitive: <
+                                    int64_value: <
+                                    >
+                                  >
+                                >
+                              >
+                              fields: <
+                                key: "notification_level"
+                                value: <
+                                  primitive: <
+                                    int64_value: <
+                                    >
+                                  >
+                                >
+                              >
+                            >
+                          >
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "printing_merge_request_link_enabled"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "public_jobs"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "readme_url"
+                    value: <
+                      optional: <
+                        none: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "remove_source_branch_after_merge"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "repository_access_level"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "request_access_enabled"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "resolve_outdated_diff_discussions"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "shared_runners_enabled"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "shared_with_groups"
+                    value: <
+                      list: <
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "snippets_access_level"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "snippets_enabled"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "ssh_url_to_repo"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "star_count"
+                    value: <
+                      primitive: <
+                        int64_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "suggestion_commit_message"
+                    value: <
+                      optional: <
+                        none: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "tag_list"
+                    value: <
+                      list: <
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "visibility"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "web_url"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                        formats: <
+                          key: "url"
+                          value: true
+                        >
+                        format_kind: "uri"
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "wiki_access_level"
+                    value: <
+                      primitive: <
+                        string_value: <
+                        >
+                      >
+                    >
+                  >
+                  fields: <
+                    key: "wiki_enabled"
+                    value: <
+                      primitive: <
+                        bool_value: <
+                        >
+                      >
+                    >
+                  >
+                >
+              >
+            >
+          >
+        >
+        options: <
+          key: "rodewX9rEJg="
+          value: <
+            struct: <
+              fields: <
+                key: "_links"
+                value: <
+                  struct: <
+                    fields: <
+                      key: "events"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                          formats: <
+                            key: "url"
+                            value: true
+                          >
+                          format_kind: "uri"
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "issues"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                          formats: <
+                            key: "url"
+                            value: true
+                          >
+                          format_kind: "uri"
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "labels"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                          formats: <
+                            key: "url"
+                            value: true
+                          >
+                          format_kind: "uri"
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "members"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                          formats: <
+                            key: "url"
+                            value: true
+                          >
+                          format_kind: "uri"
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "merge_requests"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                          formats: <
+                            key: "url"
+                            value: true
+                          >
+                          format_kind: "uri"
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "repo_branches"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                          formats: <
+                            key: "url"
+                            value: true
+                          >
+                          format_kind: "uri"
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "self"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                          formats: <
+                            key: "url"
+                            value: true
+                          >
+                          format_kind: "uri"
+                        >
+                      >
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "allow_merge_on_skipped_pipeline"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "archived"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "auto_cancel_pending_pipelines"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "auto_devops_deploy_strategy"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "auto_devops_enabled"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "autoclose_referenced_issues"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "avatar_url"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "build_coverage_regex"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "build_git_strategy"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "build_timeout"
+                value: <
+                  primitive: <
+                    int64_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "builds_access_level"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "can_create_merge_request_in"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "ci_config_path"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "ci_default_git_depth"
+                value: <
+                  primitive: <
+                    int64_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "container_expiration_policy"
+                value: <
+                  struct: <
+                    fields: <
+                      key: "cadence"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "enabled"
+                      value: <
+                        primitive: <
+                          bool_value: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "keep_n"
+                      value: <
+                        primitive: <
+                          int64_value: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "name_regex"
+                      value: <
+                        optional: <
+                          none: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "name_regex_keep"
+                      value: <
+                        optional: <
+                          none: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "next_run_at"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                          formats: <
+                            key: "rfc_3339"
+                            value: true
+                          >
+                          format_kind: "datetime"
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "older_than"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                        >
+                      >
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "container_registry_enabled"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "created_at"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "rfc_3339"
+                      value: true
+                    >
+                    format_kind: "datetime"
+                  >
+                >
+              >
+              fields: <
+                key: "creator_id"
+                value: <
+                  primitive: <
+                    int64_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "default_branch"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "description"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "emails_disabled"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "empty_repo"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "forking_access_level"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "forks_count"
+                value: <
+                  primitive: <
+                    int64_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "http_url_to_repo"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+              fields: <
+                key: "id"
+                value: <
+                  primitive: <
+                    int64_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "import_error"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "import_status"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "issues_access_level"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "issues_enabled"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "jobs_enabled"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "last_activity_at"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "rfc_3339"
+                      value: true
+                    >
+                    format_kind: "datetime"
+                  >
+                >
+              >
+              fields: <
+                key: "lfs_enabled"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "merge_method"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "merge_requests_access_level"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "merge_requests_enabled"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "name"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "name_with_namespace"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "namespace"
+                value: <
+                  struct: <
+                    fields: <
+                      key: "avatar_url"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                          formats: <
+                            key: "url"
+                            value: true
+                          >
+                          format_kind: "uri"
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "full_path"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "id"
+                      value: <
+                        primitive: <
+                          int64_value: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "kind"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "name"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "parent_id"
+                      value: <
+                        optional: <
+                          none: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "path"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "web_url"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                          formats: <
+                            key: "url"
+                            value: true
+                          >
+                          format_kind: "uri"
+                        >
+                      >
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "only_allow_merge_if_all_discussions_are_resolved"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "only_allow_merge_if_pipeline_succeeds"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "open_issues_count"
+                value: <
+                  primitive: <
+                    int64_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "owner"
+                value: <
+                  struct: <
+                    fields: <
+                      key: "avatar_url"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                          formats: <
+                            key: "url"
+                            value: true
+                          >
+                          format_kind: "uri"
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "id"
+                      value: <
+                        primitive: <
+                          int64_value: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "name"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "state"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "username"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "web_url"
+                      value: <
+                        primitive: <
+                          string_value: <
+                          >
+                          formats: <
+                            key: "url"
+                            value: true
+                          >
+                          format_kind: "uri"
+                        >
+                      >
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "pages_access_level"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "path"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "path_with_namespace"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "permissions"
+                value: <
+                  struct: <
+                    fields: <
+                      key: "group_access"
+                      value: <
+                        optional: <
+                          none: <
+                          >
+                        >
+                      >
+                    >
+                    fields: <
+                      key: "project_access"
+                      value: <
+                        struct: <
+                          fields: <
+                            key: "access_level"
+                            value: <
+                              primitive: <
+                                int64_value: <
+                                >
+                              >
+                            >
+                          >
+                          fields: <
+                            key: "notification_level"
+                            value: <
+                              primitive: <
+                                int64_value: <
+                                >
+                              >
+                            >
+                          >
+                        >
+                      >
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "printing_merge_request_link_enabled"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "public_jobs"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "readme_url"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "remove_source_branch_after_merge"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "repository_access_level"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "request_access_enabled"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "resolve_outdated_diff_discussions"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "runners_token"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "shared_runners_enabled"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "shared_with_groups"
+                value: <
+                  list: <
+                  >
+                >
+              >
+              fields: <
+                key: "snippets_access_level"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "snippets_enabled"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "ssh_url_to_repo"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "star_count"
+                value: <
+                  primitive: <
+                    int64_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "suggestion_commit_message"
+                value: <
+                  optional: <
+                    none: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "tag_list"
+                value: <
+                  list: <
+                  >
+                >
+              >
+              fields: <
+                key: "visibility"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "web_url"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                    formats: <
+                      key: "url"
+                      value: true
+                    >
+                    format_kind: "uri"
+                  >
+                >
+              >
+              fields: <
+                key: "wiki_access_level"
+                value: <
+                  primitive: <
+                    string_value: <
+                    >
+                  >
+                >
+              >
+              fields: <
+                key: "wiki_enabled"
+                value: <
+                  primitive: <
+                    bool_value: <
+                    >
+                  >
+                >
+              >
+            >
+          >
+        >
+        potential_conflict: true
+      >
+      meta: <
+        http: <
+          body: <
+            content_type: JSON
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "XiExdHNveQ4="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Etag"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "XmREjBpvvEY="
+    value: <
+      primitive: <
+        int64_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Total-Pages"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "gtaqIsDL0K8="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "Cache-Control"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "rV7hGHatcSA="
+    value: <
+      primitive: <
+        int64_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Per-Page"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  responses: <
+    key: "x2PuS2JNXDI="
+    value: <
+      primitive: <
+        string_value: <
+        >
+      >
+      meta: <
+        http: <
+          header: <
+            key: "X-Request-Id"
+          >
+          response_code: 200
+        >
+      >
+    >
+  >
+  meta: <
+    http: <
+      method: "GET"
+      path_template: "/api/v4/projects/{arg4}"
+      host: "localhost:8080"
+    >
+  >
+>

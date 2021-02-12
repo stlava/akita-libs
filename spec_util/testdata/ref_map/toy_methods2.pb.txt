@@ -1,0 +1,177 @@
+# MethodCalls proto
+
+calls: {
+  id: {
+    name: "method_1"
+    api_type: HTTP_REST
+  }
+
+  args: {
+    key: "method_1_arg_1"
+    value: {
+      primitive: {
+        type_hint: "user_type_1"
+        string_value: {
+          type: {
+            regex: "[a-z]*"
+          }
+          value: "ef5714e4-d462-4a4b-bf7c-ffc315ca7b89"
+        }
+        akita_annotations: {
+          is_free: true
+        }
+      }
+    }
+  }
+
+  args: {
+    key: "method_1_arg_2"
+    value: {
+      struct: {
+        fields: {
+          key: "struct_field_1"
+          value: {
+            primitive: {
+              type_hint: "user_type_2"
+              bool_value: {
+                type: {}
+                value: true
+              }
+              akita_annotations: {
+                is_free: true
+              }
+            }
+          }
+        }
+        fields: {
+          key: "struct_field_2"
+          value: {
+            optional: {
+              data: {
+                primitive: {
+                  type_hint: "user_type_3"
+                  int32_value: {
+                    type: {}
+                    value: 1203
+                  }
+                  akita_annotations: {
+                    is_free: true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  responses: {
+    key: "method_1_resp_1"
+    value: {
+      meta: {
+        http: {
+          body: {
+            content_type: JSON
+          }
+          response_code: 200
+        }
+      }
+      list: {
+        elems: {
+          primitive: {
+            type_hint: "user_type_4"
+            int64_value: {
+              type: {}
+              value: 145987146124
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+calls: {
+  id: {
+    name: "method_2"
+    api_type: HTTP_REST
+  }
+
+  args: {
+    key: "method_2_arg_1"
+    value: {
+      primitive: {
+        type_hint: "user_type_1"
+        string_value: {
+          type: {
+            regex: "[a-z]*"
+          }
+          value: "abc"
+        }
+        # Intentionally not free so it has to refer to method_1_arg_1.
+      }
+    }
+  }
+
+  args: {
+    key: "method_2_arg_2"
+    value: {
+      primitive: {
+        type_hint: "single_fixed_value_arg"
+        bytes_value: {
+          type: {
+            # Single fixed value type -- don't expect a reference to be
+            # generated.
+            fixed_values: "50ac99af-97e1-44db-861c-c7bbd3b7f07d"
+          }
+          value: "50ac99af-97e1-44db-861c-c7bbd3b7f07d"
+        }
+        akita_annotations: {
+          is_free: true
+        }
+      }
+    }
+  }
+
+  responses: {
+    key: "method_2_resp_1"
+    value: {
+      meta: {
+        http: {
+          body: {
+            content_type: JSON
+          }
+          response_code: 200
+        }
+      }
+      struct: {
+        fields: {
+          key: "response_field_1"
+          value: {
+            primitive: {
+              type_hint: "user_type_5"
+              bytes_value: {
+                type: {}
+                value: "abcdef"
+              }
+            }
+          }
+        }
+        fields: {
+          key: "response_field_2"
+          value: {
+            primitive: {
+              type_hint: "user_type_4"
+              int64_value: {
+                type: {}
+                value: 145987146124
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

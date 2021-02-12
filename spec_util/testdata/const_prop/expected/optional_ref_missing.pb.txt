@@ -1,0 +1,15 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+arg_templates: {
+  key: "arg1"
+  value: {
+    value: {
+      optional: {
+        none: {}
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+# api_spec.DataRef proto
+
+list_ref: {
+  full_list: {}
+}

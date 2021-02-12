@@ -1,0 +1,62 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+
+arg_templates: {
+  key: "arg1"
+  value: {
+    value: {
+      list: {
+        elems: {
+          primitive: {
+            type_hint: "string_constant_1"
+            string_value: {
+              value: "7c73565e-0d62-49b0-84e7-3063f4d53d9c"
+            }
+          }
+        }
+        elems: {
+          struct: {
+            fields: {
+              key: "foo"
+              value: {
+                primitive: {
+                  type_hint: "string_constant_2"
+                  string_value: {
+                    value: "1aa4e597-a29d-42d4-8134-3e4ee73aa7a1"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+arg_templates: {
+  key: "arg2"
+  value: {
+    value: {
+      list: {
+        elems: {
+          primitive: {
+            int64_value: {
+              value: 522
+            }
+          }
+        }
+        elems: {
+          primitive: {
+            int32_value: {
+              value: 1203
+            }
+          }
+        }
+      }
+    }
+  }
+}

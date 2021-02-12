@@ -1,0 +1,79 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+
+arg_templates: {
+  key: "arg1"
+  value: {
+    struct_template: {
+      # Both fields refer to constant -- the whole struct should be upgraded to
+      # a constant.
+      field_templates: {
+        key: "field1"
+        value: {
+          ref: {
+            method_index: 0
+            arg_ref: {
+              key: "primitive_constant_arg"
+              data_ref: {
+                primitive_ref: {}
+              }
+            }
+          }
+        }
+      }
+      field_templates: {
+        key: "field2"
+        value: {
+          ref: {
+            method_index: 0
+            arg_ref: {
+              key: "struct_constant_arg"
+              data_ref: {
+                struct_ref: {
+                  full_struct: {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+arg_templates: {
+  key: "arg2"
+  value: {
+    struct_template: {
+      # All fields are constant already -- the whole struct should be upgraded
+      # to a constant.
+      field_templates: {
+        key: "field1"
+        value: {
+          value: {
+            primitive: {
+              int64_value: {
+                value: 522
+              }
+            }
+          }
+        }
+      }
+      field_templates: {
+        key: "field2"
+        value: {
+          value: {
+            primitive: {
+              int32_value: {
+                value: 1203
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

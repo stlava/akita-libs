@@ -1,0 +1,7 @@
+# api_spec.Data proto
+
+primitive: {
+  int64_value: {
+    value: 1203
+  }
+}

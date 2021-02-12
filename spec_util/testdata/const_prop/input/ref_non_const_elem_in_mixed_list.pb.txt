@@ -1,0 +1,27 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+
+arg_templates: {
+  key: "arg1"
+  value: {
+    ref: {
+      method_index: 1
+      arg_ref: {
+        key: "list_mixed_arg"
+        data_ref: {
+          list_ref: {
+            elem_ref: {
+              index: 1
+              data_ref: {
+                primitive_ref: {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

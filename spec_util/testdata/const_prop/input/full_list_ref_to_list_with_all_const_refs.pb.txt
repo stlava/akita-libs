@@ -1,0 +1,22 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+
+arg_templates: {
+  key: "arg1"
+  value: {
+    ref: {
+      method_index: 2
+      arg_ref: {
+        key: "list_nested_const_ref_arg"
+        data_ref: {
+          list_ref: {
+            full_list: {}
+          }
+        }
+      }
+    }
+  }
+}

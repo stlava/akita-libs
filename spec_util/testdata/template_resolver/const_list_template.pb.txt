@@ -1,0 +1,40 @@
+# api_spec.DataTemplate proto
+
+# List template this is actually just a constant list.
+list_template: {
+  elem_templates: {
+    value: {
+      primitive: {
+        string_value: {
+          value: "cd1c9353-eeeb-4243-aa92-b7511b352197"
+        }
+      }
+    }
+  }
+  elem_templates: {
+    value: {
+      struct: {
+        fields: {
+          key: "k"
+          value: {
+            primitive: {
+              int64_value: {
+                value: 1203
+              }
+            }
+          }
+        }
+        fields: {
+          key: "s"
+          value: {
+            primitive: {
+              int32_value: {
+                value: 522
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

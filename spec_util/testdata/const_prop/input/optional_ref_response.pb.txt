@@ -1,0 +1,25 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+
+arg_templates: {
+  key: "arg1"
+  value: {
+    optional_template: {
+      value_template: {
+        ref: {
+          method_index: 0
+          response_ref: {
+            key: "response_1"
+            data_ref: {
+              primitive_ref: {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

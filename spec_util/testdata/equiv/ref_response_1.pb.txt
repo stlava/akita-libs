@@ -1,0 +1,11 @@
+# DataTemplate proto
+
+ref: {
+  method_index: 0
+  response_ref: {
+    key: "response_1"
+    data_ref: {
+      primitive_ref: {}
+    }
+  }
+}

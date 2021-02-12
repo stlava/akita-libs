@@ -1,0 +1,17 @@
+# DataTemplate proto
+
+list_template: {
+  elem_templates: {
+    ref: {
+      method_index: 0
+      arg_ref: {
+        key: "struct_constant_arg"
+        data_ref: {
+          struct_ref: {
+            full_struct: {}
+          }
+        }
+      }
+    }
+  }
+}

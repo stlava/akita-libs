@@ -1,0 +1,53 @@
+# api_spec.Witness proto
+
+method: {
+  meta: {
+    http: {
+      method: "POST"
+      path_template: "/api/create_file"
+      host: "www.akibox.com"
+    }
+  }
+  responses: {
+    key: "sTH-Tl_dPYw="
+    value: {
+      oneof: {
+        options: {
+          key: "VVgfwIsWxHs="
+          value: {
+            primitive: {
+              string_value: {}
+              formats: {
+                key:"ISOYearMonth"
+                value:true
+              }
+              format_kind: "kind1"
+            }
+          }
+        }
+        options: {
+          key: "aZ5HLJXlqk4="
+          value: {
+            primitive: {
+              string_value: {}
+              formats: {
+                key:"Phone"
+                value:true
+              }
+              format_kind: "kind2"
+            }
+          }
+        }
+        potential_conflict:true
+      }
+      meta: {
+        http: {
+          body: {
+            content_type: JSON
+          }
+          response_code: 200
+        }
+      }
+    }
+  }
+}

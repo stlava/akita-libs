@@ -1,0 +1,13 @@
+# api_spec.DataTemplate proto
+
+optional_template: {
+  value_template: {
+    value: {
+      primitive: {
+        string_value: {
+          value: "f0da21fb-0e2d-4b80-85fe-c61c5718aa79"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+
+arg_templates: {
+  key: "arg1"
+  value: {
+    value: {
+      primitive: {
+        type_hint: "string_constant_3"
+        string_value: {
+          value: "2b25d986-8dc5-45ea-aeb7-a01eb089af29"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+# api_spec.DataRef proto
+
+list_ref: {
+  elem_ref: {
+    index: 1
+    data_ref: {
+      struct_ref: {
+        field_ref: {
+          key: "k"
+          data_ref: {
+            primitive_ref: {}
+          }
+        }
+      }
+    }
+  }
+}

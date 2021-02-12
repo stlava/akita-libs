@@ -1,0 +1,11 @@
+# api_spec.DataTemplate proto
+
+ref: {
+  method_index: 1
+  response_ref: {
+    key: "foo"
+    data_ref: {
+      primitive_ref: {}
+    }
+  }
+}

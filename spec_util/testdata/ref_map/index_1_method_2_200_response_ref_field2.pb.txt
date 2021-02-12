@@ -1,0 +1,19 @@
+# MethodDataRef
+
+method_index: 1
+
+response_ref: {
+  key: "method_2_resp_1"
+  data_ref: {
+    struct_ref: {
+      field_ref: {
+        key: "response_field_2"
+        data_ref: {
+          primitive_ref: {
+            int64_type: {}
+          }
+        }
+      }
+    }
+  }
+}

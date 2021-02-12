@@ -1,0 +1,32 @@
+# api_spec.Witness proto
+
+method: {
+  meta: {
+    http: {
+      method: "POST"
+      path_template: "/api/create_file"
+      host: "www.akibox.com"
+    }
+  }
+  responses: {
+    key: "naAThnYPT5A="
+    value: {
+      primitive: {
+        string_value: {}
+        formats: {
+          key: "Phone"
+          value: true
+        }
+        format_kind: "kind2"
+      }
+      meta: {
+        http: {
+          body: {
+            content_type: JSON
+          }
+          response_code: 200
+        }
+      }
+    }
+  }
+}

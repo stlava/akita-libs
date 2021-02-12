@@ -1,0 +1,13 @@
+# DataTemplate proto
+
+ref: {
+  method_index: 2
+  arg_ref: {
+    key: "struct_nested_const_ref_arg"
+    data_ref: {
+      struct_ref: {
+        full_struct: {}
+      }
+    }
+  }
+}

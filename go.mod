@@ -3,9 +3,10 @@ module github.com/akitasoftware/akita-libs
 go 1.15
 
 require (
-	github.com/OneOfOne/xxhash v1.2.8 // indirect
+	github.com/OneOfOne/xxhash v1.2.8
 	github.com/akitasoftware/akita-ir v0.0.0-20210211235551-a548c32e7fbe
 	github.com/akitasoftware/objecthash-proto v0.0.0-20200508002052-e5b6b45fd2ba
+	github.com/andreyvit/diff v0.0.0-20170406064948-c7f18ee00883
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	// Golang protobuf APIv1, needed to compatibility with objecthash-proto. See
 	// pb/README.md
@@ -15,6 +16,7 @@ require (
 	github.com/google/martian/v3 v3.0.1
 	github.com/google/uuid v1.2.0
 	github.com/pkg/errors v0.9.1
+	github.com/sergi/go-diff v1.1.0 // indirect
 	github.com/stretchr/testify v1.7.0
 )
 

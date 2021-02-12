@@ -1,0 +1,17 @@
+# DataTemplate proto
+
+ref: {
+  arg_ref: {
+    key: "struct_constant_arg"
+    data_ref: {
+      struct_ref: {
+        field_ref: {
+          key: "foo"
+          data_ref: {
+            primitive_ref: {}
+          }
+        }
+      }
+    }
+  }
+}

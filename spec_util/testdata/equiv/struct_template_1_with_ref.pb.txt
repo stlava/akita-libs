@@ -1,0 +1,18 @@
+# DataTemplate proto
+
+struct_template: {
+  field_templates: {
+    key: "field_1"
+    value: {
+      ref: {
+        method_index: 0
+        arg_ref: {
+          key: "primitive_constant_arg"
+          data_ref: {
+            primitive_ref: {}
+          }
+        }
+      }
+    }
+  }
+}

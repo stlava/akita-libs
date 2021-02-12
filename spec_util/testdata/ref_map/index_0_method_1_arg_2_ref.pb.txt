@@ -1,0 +1,19 @@
+# MethodDataRef
+
+method_index: 0
+
+arg_ref: {
+  key: "method_1_arg_2"
+  data_ref: {
+    struct_ref: {
+      field_ref: {
+        key: "struct_field_2"
+        data_ref: {
+          primitive_ref: {
+            int32_type: {}
+          }
+        }
+      }
+    }
+  }
+}

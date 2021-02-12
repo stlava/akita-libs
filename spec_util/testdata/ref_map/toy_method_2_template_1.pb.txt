@@ -1,0 +1,86 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "method_2"
+  api_type: HTTP_REST
+}
+
+arg_templates: {
+  key: "method_2_arg_1"
+  value: {
+    # Reference to the same argument in the previous invocation of method_1.
+    ref: {
+      method_index: 0
+      arg_ref: {
+        key: "method_1_arg_1"
+        data_ref: {
+          primitive_ref: {
+            string_type: {
+              regex: "*"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+arg_templates: {
+  key: "method_2_arg_2"
+  value: {
+    value: {
+      primitive: {
+        type_hint: "single_fixed_value_arg"
+        bytes_value: {
+          type: {
+            # Single fixed value type -- don't expect a reference to be
+            # generated.
+            fixed_values: "50ac99af-97e1-44db-861c-c7bbd3b7f07d"
+          }
+          value: "50ac99af-97e1-44db-861c-c7bbd3b7f07d"
+        }
+        akita_annotations: {
+          is_free: true
+        }
+      }
+    }
+  }
+}
+
+responses: {
+  key: "method_2_resp_1"
+  value: {
+    meta: {
+      http: {
+        body: {
+          content_type: JSON
+        }
+        response_code: 200
+      }
+    }
+    struct: {
+      fields: {
+        key: "response_field_1"
+        value: {
+          primitive: {
+            type_hint: "user_type_5"
+            bytes_value: {
+              type: {}
+            }
+          }
+        }
+      }
+      fields: {
+        key: "response_field_2"
+        value: {
+          primitive: {
+            type_hint: "user_type_4"
+            int64_value: {
+              type: {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+
+arg_templates: {
+  key: "arg1"
+  value: {
+    ref: {
+      method_index: 0
+      arg_ref: {
+        # References a field in a constant struct.
+        key: "struct_constant_arg"
+        data_ref: {
+          struct_ref: {
+            field_ref: {
+              key: "foo"
+              data_ref: {
+                primitive_ref: {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+arg_templates: {
+  key: "arg2"
+  value: {
+    ref: {
+      method_index: 0
+      arg_ref: {
+        # References an elem in a constant list.
+        key: "list_constant_arg"
+        data_ref: {
+          list_ref: {
+            elem_ref: {
+              index: 1
+              data_ref: {
+                primitive_ref: {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

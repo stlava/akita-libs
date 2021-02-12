@@ -1,0 +1,50 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+
+arg_templates: {
+  key: "arg1"
+  value: {
+    optional_template: {
+      value_template: {
+        ref: {
+          method_index: 0
+          arg_ref: {
+            key: "primitive_constant_arg"
+            data_ref: {
+              primitive_ref: {}
+            }
+          }
+          akita_annotations: {
+            is_free: true
+            is_sensitive: true
+          }
+        }
+      }
+    }
+  }
+}
+
+arg_templates: {
+  key: "arg2"
+  value: {
+    optional_template: {
+      value_template: {
+        ref: {
+          method_index: 0
+          arg_ref: {
+            key: "struct_constant_arg"
+            data_ref: {
+              struct_ref: {
+                full_struct: {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

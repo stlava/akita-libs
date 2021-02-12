@@ -1,0 +1,67 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+
+arg_templates: {
+  key: "arg1"
+  value: {
+    list_template: {
+      # Both elems refer to constant -- the whole list should be upgraded to
+      # a constant.
+      elem_templates: {
+        ref: {
+          method_index: 0
+          arg_ref: {
+            key: "primitive_constant_arg"
+            data_ref: {
+              primitive_ref: {}
+            }
+          }
+        }
+      }
+      elem_templates: {
+        ref: {
+          method_index: 0
+          arg_ref: {
+            key: "struct_constant_arg"
+            data_ref: {
+              struct_ref: {
+                full_struct: {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+arg_templates: {
+  key: "arg2"
+  value: {
+    list_template: {
+      # All elems are constant already -- the whole list should be upgraded to
+      # a constant.
+      elem_templates: {
+        value: {
+          primitive: {
+            int64_value: {
+              value: 522
+            }
+          }
+        }
+      }
+      elem_templates: {
+        value: {
+          primitive: {
+            int32_value: {
+              value: 1203
+            }
+          }
+        }
+      }
+    }
+  }
+}

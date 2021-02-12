@@ -1,0 +1,11 @@
+# api_spec.DataTemplate proto
+
+optional_template: {
+  value_template: {
+    value: {
+      optional: {
+        none: {}
+      }
+    }
+  }
+}

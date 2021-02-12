@@ -1,0 +1,14 @@
+# DataTemplate proto
+
+optional_template: {
+  value_template: {
+    value: {
+      primitive: {
+        type_hint: "string_constant_2"
+        string_value: {
+          value: "1aa4e597-a29d-42d4-8134-3e4ee73aa7a1"
+        }
+      }
+    }
+  }
+}

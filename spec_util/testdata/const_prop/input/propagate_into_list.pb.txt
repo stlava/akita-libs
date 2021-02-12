@@ -1,0 +1,36 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+
+arg_templates: {
+  key: "arg1"
+  value: {
+    list_template: {
+      elem_templates: {
+        # This elem should become a constant because it refers to a constant.
+        ref: {
+          method_index: 0
+          arg_ref: {
+            key: "primitive_constant_arg"
+            data_ref: {
+              primitive_ref: {}
+            }
+          }
+        }
+      }
+      elem_templates: {
+        ref: {
+          method_index: 0
+          response_ref: {
+            key: "response_1"
+            data_ref: {
+              primitive_ref: {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

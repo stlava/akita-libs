@@ -1,0 +1,25 @@
+# api_spec.DataTemplate proto
+
+# List template that contains a ref, which makes it not a const.
+list_template: {
+  elem_templates: {
+    value: {
+      primitive: {
+        string_value: {
+          value: "cd1c9353-eeeb-4243-aa92-b7511b352197"
+        }
+      }
+    }
+  }
+  elem_templates: {
+    ref: {
+      method_index: 1
+      response_ref: {
+        key: "foo"
+        data_ref: {
+          primitive_ref: {}
+        }
+      }
+    }
+  }
+}

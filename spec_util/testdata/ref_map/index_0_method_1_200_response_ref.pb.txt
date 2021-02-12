@@ -1,0 +1,19 @@
+# MethodDataRef
+
+method_index: 0
+
+response_ref: {
+  key: "method_1_resp_1"
+  data_ref: {
+    list_ref: {
+      elem_ref: {
+        index: 0
+        data_ref: {
+          primitive_ref: {
+            int64_type: {}
+          }
+        }
+      }
+    }
+  }
+}

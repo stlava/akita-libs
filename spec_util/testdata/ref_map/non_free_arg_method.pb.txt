@@ -1,0 +1,42 @@
+# MethodCalls proto
+
+# This is not actually a valid trace since we wouldn't fill in a non-free
+# argument with a random value without referring to some field with the same
+# type in a previous call.
+
+calls: {
+  id: {
+    name: "method_1"
+    api_type: HTTP_REST
+  }
+
+  args: {
+    key: "method_1_arg_1"
+    value: {
+      primitive: {
+        type_hint: "user_type_1"
+        string_value: {
+          type: {
+            regex: "[a-z]*"
+          }
+          value: "ef5714e4-d462-4a4b-bf7c-ffc315ca7b89"
+        }
+        # Intentionally not free to check that we don't make a reference to it.
+      }
+    }
+  }
+
+  responses: {
+    key: "200"
+    value: {
+      primitive: {
+        type_hint: "user_type_2"
+        string_value: {
+          type: {}
+          value: "abcdef123456"
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,37 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+
+arg_templates: {
+  key: "arg1"
+  value: {
+    ref: {
+      method_index: 1
+      arg_ref: {
+        # Reference an arg that is itself a reference to a constant.
+        key: "nested_ref_to_constant_arg"
+        data_ref: {
+          primitive_ref: {}
+        }
+      }
+    }
+  }
+}
+
+arg_templates: {
+  key: "arg2"
+  value: {
+    ref: {
+      method_index: 1
+      arg_ref: {
+        # Reference an arg that is itself a reference to a resposne.
+        key: "nested_ref_to_response_arg"
+        data_ref: {
+          primitive_ref: {}
+        }
+      }
+    }
+  }
+}

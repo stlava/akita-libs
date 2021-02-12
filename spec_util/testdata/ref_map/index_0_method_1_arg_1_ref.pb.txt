@@ -1,0 +1,14 @@
+# MethodDataRef
+
+method_index: 0
+
+arg_ref: {
+  key: "method_1_arg_1"
+  data_ref: {
+    primitive_ref: {
+      string_type: {
+        regex: "[a-z]*"
+      }
+    }
+  }
+}

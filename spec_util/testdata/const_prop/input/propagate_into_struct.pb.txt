@@ -1,0 +1,42 @@
+# MethodTemplate proto
+
+method_id: {
+  name: "new_method_with_refs"
+}
+
+arg_templates: {
+  key: "arg1"
+  value: {
+    struct_template: {
+      field_templates: {
+        # This field should become a constant because it refers to a constant.
+        key: "field_with_ref_to_const"
+        value: {
+          ref: {
+            method_index: 0
+            arg_ref: {
+              key: "primitive_constant_arg"
+              data_ref: {
+                primitive_ref: {}
+              }
+            }
+          }
+        }
+      }
+      field_templates: {
+        key: "field_with_ref_to_response"
+        value: {
+          ref: {
+            method_index: 0
+            response_ref: {
+              key: "response_1"
+              data_ref: {
+                primitive_ref: {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

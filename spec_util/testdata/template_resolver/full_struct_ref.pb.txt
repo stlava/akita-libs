@@ -1,0 +1,5 @@
+# api_spec.DataRef proto
+
+struct_ref: {
+  full_struct: {}
+}
