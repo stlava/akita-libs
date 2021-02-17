@@ -86,6 +86,33 @@ var tests = []testData{
 		},
 		"testdata/meld/meld_suppress_none_conflict_expected.pb.txt",
 	},
+	{
+		// Test meld(T, optional<T>) => optional<T>
+		"meld optional and non-optional versions of the same type",
+		[]string{
+			"testdata/meld/meld_optional_required_1.pb.txt",
+			"testdata/meld/meld_optional_required_2.pb.txt",
+		},
+		"testdata/meld/meld_optional_required_2.pb.txt",
+	},
+	{
+		// meld(oneof(T1, T2), oneof(T1, T3)) => oneof(T1, T2, T3)
+		"meld additive oneof",
+		[]string{
+			"testdata/meld/meld_additive_oneof_1.pb.txt",
+			"testdata/meld/meld_additive_oneof_2.pb.txt",
+		},
+		"testdata/meld/meld_additive_oneof_expected.pb.txt",
+	},
+	{
+		// meld(oneof(T1, T2), T3) => oneof(T1, T2, T3)
+		"meld additive oneof",
+		[]string{
+			"testdata/meld/meld_oneof_with_primitive_1.pb.txt",
+			"testdata/meld/meld_oneof_with_primitive_2.pb.txt",
+		},
+		"testdata/meld/meld_oneof_with_primitive_expected.pb.txt",
+	},
 }
 
 func TestMeldWithFormats(t *testing.T) {

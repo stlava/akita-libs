@@ -4,8 +4,8 @@ import (
 	"github.com/golang/protobuf/proto"
 	"github.com/pkg/errors"
 
-	"github.com/akitasoftware/akita-libs/pbhash"
 	pb "github.com/akitasoftware/akita-ir/go/api_spec"
+	"github.com/akitasoftware/akita-libs/pbhash"
 )
 
 // Melds src into dst, resolving conflicts using oneof. Assumes that dst and src
@@ -122,11 +122,10 @@ func MeldData(dst, src *pb.Data) (retErr error) {
 		}
 	}()
 
-	// Check if src is already a oneof that encodes a conflict. This can happen if
-	// src is the collapsed element from a list originally containing elements
-	// with conflicting types.
-	if srcOf, ok := src.Value.(*pb.Data_Oneof); ok && srcOf.Oneof.GetPotentialConflict() {
-		if v, ok := dst.Value.(*pb.Data_Oneof); ok && v.Oneof.GetPotentialConflict() {
+	// Check if src is already a oneof. This can happen if src is the collapsed
+	// element from a list originally containing elements with conflicting types.
+	if srcOf, ok := src.Value.(*pb.Data_Oneof); ok {
+		if v, ok := dst.Value.(*pb.Data_Oneof); ok {
 			// If dst already encodes a conflict, merge the conflicts.
 			for k, d := range srcOf.Oneof.Options {
 				v.Oneof.Options[k] = d
@@ -139,34 +138,31 @@ func MeldData(dst, src *pb.Data) (retErr error) {
 		dst.Value, src.Value = src.Value, dst.Value
 	}
 
-	// If dst is a none, replace dst with an optional version of src.
-	if isNone(dst) {
-		if isOptional(src) {
-			dst.Value = src.Value
-		} else {
-			dst.Value = &pb.Data_Optional{
-				Optional: &pb.Optional{
-					Value: &pb.Optional_Data{
-						Data: &pb.Data{Value: src.Value},
-					},
-				},
+	// Special handling if src is optional.
+	if srcOpt, srcIsOpt := src.Value.(*pb.Data_Optional); srcIsOpt {
+		switch opt := srcOpt.Optional.Value.(type) {
+		case *pb.Optional_Data:
+			// Check whether src == dst with optional removed.
+			// E.g. meld(string, optional<string>) => optional<string>
+			if dataEqual(dst, opt.Data) {
+				// dst is just non-optional version of src, swap dst and src to make dst
+				// optional and return.
+				dst.Value, src.Value = src.Value, dst.Value
+				return nil
 			}
-		}
-		return nil
-	}
-
-	// If src is a none, drop the none and mark the dst value as optional.
-	if isNone(src) {
-		if !isOptional(dst) {
-			dst.Value = &pb.Data_Optional{
-				Optional: &pb.Optional{
-					Value: &pb.Optional_Data{
-						Data: &pb.Data{Value: dst.Value},
+		case *pb.Optional_None:
+			// If src is a none, drop the none and mark the dst value as optional.
+			if !isOptional(dst) {
+				dst.Value = &pb.Data_Optional{
+					Optional: &pb.Optional{
+						Value: &pb.Optional_Data{
+							Data: &pb.Data{Value: dst.Value},
+						},
 					},
-				},
+				}
 			}
+			return nil
 		}
-		return nil
 	}
 
 	switch v := dst.Value.(type) {
@@ -185,58 +181,92 @@ func MeldData(dst, src *pb.Data) (retErr error) {
 			hasConflict = true
 			return recordConflict(dst, src)
 		}
-	case *pb.Data_Oneof:
-		hasConflict = true
-
-		// Check if the oneof is an artificial one injected by us to record
-		// conflicts.
-		if v.Oneof.GetPotentialConflict() {
-			// Add src as a new option after clearing its meta field since for
-			// HTTP specs, oneof options all have the same metadata, recorded in the
-			// Data.Meta field of the containing Data.
-			srcNoMeta := proto.Clone(src).(*pb.Data)
-			srcNoMeta.Meta = nil
-
-			// See if we can meld the src into one of the options. For example,
-			// melding struct into struct or list into list.
-			_, srcIsStruct := srcNoMeta.Value.(*pb.Data_Struct)
-			_, srcIsList := srcNoMeta.Value.(*pb.Data_List)
-			for _, option := range v.Oneof.Options {
-				switch option.Value.(type) {
-				case *pb.Data_Struct:
-					if srcIsStruct {
-						return MeldData(option, srcNoMeta)
-					}
-				case *pb.Data_List:
-					if srcIsList {
-						return MeldData(option, srcNoMeta)
-					}
+	case *pb.Data_Optional:
+		switch opt := v.Optional.Value.(type) {
+		case *pb.Optional_Data:
+			// Check whether src == dst with optional removed.
+			// E.g. meld(optional<string>, string) => optional<string>
+			if dataEqual(opt.Data, src) {
+				// Do nothing - src is just non-optional verison of dst.
+				return nil
+			}
+			return recordConflict(dst, src)
+		case *pb.Optional_None:
+			// If dst is a none, replace dst with an optional version of src.
+			if isOptional(src) {
+				dst.Value = src.Value
+			} else {
+				dst.Value = &pb.Data_Optional{
+					Optional: &pb.Optional{
+						Value: &pb.Optional_Data{
+							Data: &pb.Data{Value: src.Value},
+						},
+					},
 				}
 			}
-
-			// Create a new conflict option.
-			h, err := pbhash.HashProto(srcNoMeta)
-			if err != nil {
-				return errors.Wrapf(err, "failed to hash data: %v", srcNoMeta)
-			}
-
-			if existing, ok := v.Oneof.Options[h]; ok {
-				// There might be an existing option with the same hash because we
-				// ignore example values in the hash. If this is the case, merge
-				// examples.
-				mergeExampleValues(existing, src)
-			} else {
-				v.Oneof.Options[h] = srcNoMeta
-			}
 			return nil
-		} else {
-			// This is a real oneof. Record type conflict if applicable.
+		default:
 			return recordConflict(dst, src)
 		}
+	case *pb.Data_Oneof:
+		hasConflict = true
+		// Add src as a new option after clearing its meta field since for
+		// HTTP specs, oneof options all have the same metadata, recorded in the
+		// Data.Meta field of the containing Data.
+		srcNoMeta := proto.Clone(src).(*pb.Data)
+		srcNoMeta.Meta = nil
+
+		// See if we can meld the src into one of the options. For example,
+		// melding struct into struct or list into list.
+		_, srcIsStruct := srcNoMeta.Value.(*pb.Data_Struct)
+		_, srcIsList := srcNoMeta.Value.(*pb.Data_List)
+		for _, option := range v.Oneof.Options {
+			switch option.Value.(type) {
+			case *pb.Data_Struct:
+				if srcIsStruct {
+					return MeldData(option, srcNoMeta)
+				}
+			case *pb.Data_List:
+				if srcIsList {
+					return MeldData(option, srcNoMeta)
+				}
+			}
+		}
+
+		// Create a new conflict option.
+		h, err := pbhash.HashProto(srcNoMeta)
+		if err != nil {
+			return errors.Wrapf(err, "failed to hash data: %v", srcNoMeta)
+		}
+
+		if existing, ok := v.Oneof.Options[h]; ok {
+			// There might be an existing option with the same hash because we
+			// ignore example values in the hash. If this is the case, merge
+			// examples.
+			mergeExampleValues(existing, src)
+		} else {
+			v.Oneof.Options[h] = srcNoMeta
+		}
+		return nil
 	default:
 		hasConflict = true
 		return recordConflict(dst, src)
 	}
+}
+
+func dataEqual(dst, src *pb.Data) bool {
+	srcExampleValues := src.ExampleValues
+	dstExampleValues := dst.ExampleValues
+	src.ExampleValues = nil
+	dst.ExampleValues = nil
+
+	defer func() {
+		// Reinstate original example values
+		src.ExampleValues = srcExampleValues
+		dst.ExampleValues = dstExampleValues
+	}()
+
+	return proto.Equal(dst, src)
 }
 
 func recordConflict(dst, src *pb.Data) error {
