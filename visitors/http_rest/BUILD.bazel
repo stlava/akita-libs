@@ -1,0 +1,28 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["http_rest_spec_visitor.go"],
+    importpath = "akitasoftware.com/test-service/lib/visitors/http_rest",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/visitors:go_default_library",
+        "//lib/visitors/go_ast:go_default_library",
+        "@akitasoftware_test_service_interface//api_spec:api_spec_go_proto",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["http_rest_spec_visitor_test.go"],
+    data = [
+        "//lib/visitors/testdata:testdata",
+    ],
+    embed = [":go_default_library"],
+    deps = [
+        "//lib/api-transformer/http_rest/convert:go_default_library",
+        "//lib/visitors/go_ast:go_default_library",
+        "@akitasoftware_test_service_interface//api_spec:api_spec_go_proto",
+        "@com_github_stretchr_testify//assert:go_default_library",
+    ],
+)

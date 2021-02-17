@@ -1,0 +1,720 @@
+openapi: 3.0.0
+info:
+  version: 0.1.0
+  title: Sentry API
+  description: Sentry API
+paths:
+  /api/0/projects/:
+    parameters:
+      - $ref: "#/components/parameters/AuthorizationHeader"
+    get:
+      operationId: GET /api/0/projects/
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    avatar:
+                      properties:
+                        avatarType:
+                          type: string
+                      type: object
+                    color:
+                      type: string
+                    dateCreated:
+                      type: string
+                    features:
+                      items:
+                        type: string
+                      type: array
+                    firstEvent:
+                      type: string
+                    hasAccess:
+                      type: boolean
+                    id:
+                      type: string
+                    isBookmarked:
+                      type: boolean
+                    isInternal:
+                      type: boolean
+                    isMember:
+                      type: boolean
+                    isPublic:
+                      type: boolean
+                    name:
+                      type: string
+                    organization:
+                      properties:
+                        avatar:
+                          properties:
+                            avatarType:
+                              type: string
+                          type: object
+                        dateCreated:
+                          type: string
+                        features:
+                          items:
+                            type: string
+                          type: array
+                        id:
+                          type: string
+                        isEarlyAdopter:
+                          type: boolean
+                        name:
+                          type: string
+                        require2FA:
+                          type: boolean
+                        slug:
+                          type: string
+                          x-akita-type-hint: organization_slug
+                        status:
+                          properties:
+                            id:
+                              type: string
+                            name:
+                              type: string
+                          type: object
+                      type: object
+                    slug:
+                      type: string
+                      x-akita-type-hint: project_slug
+                    status:
+                      type: string
+                  type: object
+                type: array
+  /api/0/projects/{organization_slug}/{project_slug}/keys/:
+    parameters:
+      - $ref: "#/components/parameters/AuthorizationHeader"
+    get:
+      operationId: GET /api/0/{organization_slug}/{project_slug}/keys/
+      parameters:
+        - name: organization_slug
+          required: true
+          in: path
+          x-akita-type-hint: organization_slug
+          schema:
+            type: string
+        - name: project_slug
+          required: true
+          in: path
+          x-akita-type-hint: project_slug
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    browserSdk:
+                      properties:
+                        choices:
+                          items:
+                            items:
+                              type: string
+                            type: array
+                          type: array
+                      type: object
+                    browserSdkVersion:
+                      type: string
+                    dateCreated:
+                      type: string
+                    dsn:
+                      properties:
+                        cdn:
+                          type: string
+                        csp:
+                          type: string
+                        minidump:
+                          type: string
+                        public:
+                          type: string
+                        secret:
+                          type: string
+                        security:
+                          type: string
+                        unreal:
+                          type: string
+                      type: object
+                    id:
+                      type: string
+                    isActive:
+                      type: boolean
+                    label:
+                      type: string
+                    name:
+                      type: string
+                    projectId:
+                      format: int64
+                      type: integer
+                    public:
+                      type: string
+                      x-akita-type-hint: sentry_key
+                    secret:
+                      type: string
+                  type: object
+                type: array
+  /api/1/store/:
+    parameters:
+      - $ref: "#/components/parameters/AuthorizationHeader"
+    post:
+      operationId: POST /api/1/store/
+      parameters:
+        - in: query
+          name: sentry_key
+          required: true
+          schema:
+            type: string
+            x-akita-type-hint: sentry_key
+        - in: query
+          name: sentry_version
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 7
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                culprit:
+                  type: string
+                  x-akita-free-arg: true
+                dist:
+                  type: string
+                  x-akita-free-arg: true
+                environment:
+                  type: string
+                  x-akita-free-arg: true
+                event_id:
+                  type: string
+                  x-akita-type-hint: event_id
+                  x-akita-free-arg: true
+                exception:
+                  properties:
+                    values:
+                      items:
+                        properties:
+                          module:
+                            type: string
+                            x-akita-free-arg: true
+                          type:
+                            type: string
+                            x-akita-free-arg: true
+                          value:
+                            type: string
+                            x-akita-free-arg: true
+                        required:
+                          - type
+                          - value
+                          - module
+                        type: object
+                      type: array
+                  required:
+                    - values
+                  type: object
+                fingerprint:
+                  items:
+                    type: string
+                    x-akita-free-arg: true
+                  type: array
+                level:
+                  type: string
+                  x-akita-free-arg: true
+                logger:
+                  type: string
+                  x-akita-free-arg: true
+                message:
+                  type: string
+                  x-akita-free-arg: true
+                platform:
+                  type: string
+                  enum:
+                    - as3
+                    - c
+                    - cfml
+                    - cocoa
+                    - csharp
+                    - elixir
+                    - haskell
+                    - go
+                    - groovy
+                    - java
+                    - javascript
+                    - native
+                    - node
+                    - objc
+                    - other
+                    - perl
+                    - php
+                    - python
+                    - ruby
+                  x-akita-free-arg: true
+                release:
+                  type: string
+                  x-akita-free-arg: true
+                server_name:
+                  type: string
+                  x-akita-free-arg: true
+                timestamp:
+                  type: string
+                  format: time
+                  x-akita-free-arg: true
+                transaction:
+                  type: string
+                  x-akita-free-arg: true
+                user:
+                  properties:
+                    email:
+                      type: string
+                      format: email
+                      x-akita-is-sensitive: true
+                      x-akita-type-hint: user_email
+                      x-akita-free-arg: true
+                    id:
+                      type: string
+                      x-akita-is-sensitive: true
+                      x-akita-type-hint: user_id
+                      x-akita-free-arg: true
+                    ip_address:
+                      type: string
+                      x-akita-is-sensitive: true
+                      x-akita-type-hint: user_ip_address
+                      x-akita-free-arg: true
+                    username:
+                      type: string
+                      x-akita-is-sensitive: true
+                      x-akita-type-hint: user_username
+                      x-akita-free-arg: true
+                    subscription:
+                      type: string
+                      x-akita-free-arg: true
+                  required:
+                    - email
+                    - id
+                    - ip_address
+                    - username
+                  type: object
+              required:
+                - timestamp
+                - event_id
+                - logger
+                - platform
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                type: object
+  /api/0/projects/{organization_slug}/{project_slug}/events/:
+    parameters:
+      - $ref: "#/components/parameters/AuthorizationHeader"
+    get:
+      operationId: GET /api/0/{organization_slug}/{project_slug}/events/
+      parameters:
+        - name: organization_slug
+          required: true
+          in: path
+          x-akita-type-hint: organization_slug
+          schema:
+            type: string
+        - name: project_slug
+          required: true
+          in: path
+          x-akita-type-hint: project_slug
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    culprit:
+                      type: string
+                    dateCreated:
+                      type: string
+                    event.type:
+                      type: string
+                    eventID:
+                      type: string
+                    groupID:
+                      type: string
+                    id:
+                      type: string
+                    message:
+                      type: string
+                    platform:
+                      type: string
+                    projectID:
+                      type: string
+                    tags:
+                      items:
+                        properties:
+                          key:
+                            type: string
+                          value:
+                            type: string
+                        type: object
+                      type: array
+                    title:
+                      type: string
+                    user:
+                      properties:
+                        data:
+                          properties:
+                            subscription:
+                              type: string
+                          type: object
+                        email:
+                          type: string
+                          x-akita-is-sensitive: true
+                          x-akita-type-hint: user_email
+                        id:
+                          type: string
+                          x-akita-is-sensitive: true
+                          x-akita-type-hint: user_id
+                        ip_address:
+                          type: string
+                          x-akita-is-sensitive: true
+                          x-akita-type-hint: user_ip_address
+                        username:
+                          type: string
+                          x-akita-is-sensitive: true
+                          x-akita-type-hint: user_username
+                      type: object
+                  type: object
+                type: array
+  /api/0/projects/{organization_slug}/{project_slug}/users/:
+    parameters:
+      - $ref: "#/components/parameters/AuthorizationHeader"
+    get:
+      operationId: GET /api/0/projects/{organization_slug}/{project_slug}/users/
+      parameters:
+        - name: organization_slug
+          required: true
+          in: path
+          x-akita-type-hint: organization_slug
+          schema:
+            type: string
+        - name: project_slug
+          required: true
+          in: path
+          x-akita-type-hint: project_slug
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    avatarUrl:
+                      type: string
+                    dateCreated:
+                      type: string
+                    email:
+                      type: string
+                      x-akita-is-sensitive: true
+                      x-akita-type-hint: user_email
+                    hash:
+                      type: string
+                    id:
+                      type: string
+                      x-akita-is-sensitive: true
+                      x-akita-type-hint: user_id
+                    identifier:
+                      type: string
+                    ipAddress:
+                      type: string
+                      x-akita-is-sensitive: true
+                      x-akita-type-hint: user_ip_address
+                    name:
+                      type: string
+                      x-akita-is-sensitive: true
+                      x-akita-type-hint: user_name
+                    tagValue:
+                      type: string
+                    username:
+                      type: string
+                      x-akita-is-sensitive: true
+                      x-akita-type-hint: user_username
+                  type: object
+                type: array
+  /api/0/projects/{organization_slug}/{project_slug}/issues/:
+    parameters:
+      - $ref: "#/components/parameters/AuthorizationHeader"
+    get:
+      operationId: GET /api/0/projects/{organization_slug}/{project_slug}/issues/
+      parameters:
+        - name: organization_slug
+          required: true
+          in: path
+          x-akita-type-hint: organization_slug
+          schema:
+            type: string
+        - name: project_slug
+          required: true
+          in: path
+          x-akita-type-hint: project_slug
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    count:
+                      type: string
+                    culprit:
+                      type: string
+                    firstSeen:
+                      type: string
+                    hasSeen:
+                      type: boolean
+                    id:
+                      type: string
+                      x-akita-type-hint: issue_id
+                    isBookmarked:
+                      type: boolean
+                    isPublic:
+                      type: boolean
+                    isSubscribed:
+                      type: boolean
+                    lastSeen:
+                      type: string
+                    level:
+                      type: string
+                    logger:
+                      type: string
+                    metadata:
+                      properties:
+                        type:
+                          type: string
+                        value:
+                          type: string
+                      type: object
+                    numComments:
+                      format: int64
+                      type: integer
+                    permalink:
+                      type: string
+                    platform:
+                      type: string
+                    project:
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        slug:
+                          type: string
+                          x-akita-type-hint: project_slug
+                      type: object
+                    shortId:
+                      type: string
+                    stats:
+                      properties:
+                        24h:
+                          items:
+                            items:
+                              format: int64
+                              type: integer
+                            type: array
+                          type: array
+                      type: object
+                    status:
+                      type: string
+                    statusDetails:
+                      type: object
+                    title:
+                      type: string
+                    type:
+                      type: string
+                    userCount:
+                      format: int64
+                      type: integer
+                  type: object
+                type: array
+  /api/0/issues/{issue_id}/events/:
+    parameters:
+      - $ref: "#/components/parameters/AuthorizationHeader"
+    get:
+      operationId: GET /api/0/issues/{issue_id}/events/
+      parameters:
+        - name: issue_id
+          required: true
+          in: path
+          x-akita-type-hint: issue_id
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    culprit:
+                      type: string
+                    dateCreated:
+                      type: string
+                    event.type:
+                      type: string
+                    eventID:
+                      type: string
+                    groupID:
+                      type: string
+                    id:
+                      type: string
+                    message:
+                      type: string
+                    platform:
+                      type: string
+                    projectID:
+                      type: string
+                    tags:
+                      items:
+                        properties:
+                          key:
+                            type: string
+                          value:
+                            type: string
+                        type: object
+                      type: array
+                    title:
+                      type: string
+                    user:
+                      properties:
+                        data:
+                          properties:
+                            subscription:
+                              type: string
+                          type: object
+                        email:
+                          type: string
+                          x-akita-is-sensitive: true
+                          x-akita-type-hint: user_email
+                        id:
+                          type: string
+                          x-akita-is-sensitive: true
+                          x-akita-type-hint: user_id
+                        ip_address:
+                          type: string
+                          x-akita-is-sensitive: true
+                          x-akita-type-hint: user_ip_address
+                        username:
+                          type: string
+                          x-akita-is-sensitive: true
+                          x-akita-type-hint: user_username
+                      type: object
+                  type: object
+                type: array
+  /api/0/projects/{organization_slug}/{project_slug}/user-feedback/:
+    parameters:
+      - $ref: "#/components/parameters/AuthorizationHeader"
+    post:
+      operationId: POST /api/0/projects/{organization_slug}/{project_slug}/user-feedback/
+      parameters:
+        - name: organization_slug
+          required: true
+          in: path
+          x-akita-type-hint: organization_slug
+          schema:
+            type: string
+        - name: project_slug
+          required: true
+          in: path
+          x-akita-type-hint: project_slug
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                comments:
+                  type: string
+                  x-akita-free-arg: true
+                email:
+                  type: string
+                  format: email
+                  x-akita-is-sensitive: true
+                  x-akita-type-hint: user_email
+                  x-akita-free-arg: true
+                event_id:
+                  type: string
+                  x-akita-type-hint: event_id
+                  x-akita-free-arg: true
+                name:
+                  type: string
+                  x-akita-is-sensitive: true
+                  x-akita-type-hint: user_name
+                  x-akita-free-arg: true
+              required:
+                - event_id
+                - name
+                - comments
+                - email
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  comments:
+                    type: string
+                  dateCreated:
+                    type: string
+                  email:
+                    type: string
+                    x-akita-is-sensitive: true
+                    x-akita-type-hint: user_email
+                  event:
+                    properties:
+                      eventID:
+                        type: string
+                        x-akita-type-hint: event_id
+                      id:
+                        type: string
+                    type: object
+                  eventID:
+                    type: string
+                    x-akita-type-hint: event_id
+                  id:
+                    type: string
+                  name:
+                    type: string
+                    x-akita-is-sensitive: true
+                    x-akita-type-hint: user_name
+                type: object
+servers:
+  - url: http://localhost:9000
+components:
+  parameters:
+    AuthorizationHeader:
+      name: Authorization
+      in: header
+      description: "Auth token used to identify and authorize API caller"
+      required: true
+      schema:
+        type: string
+        enum:
+          - "Bearer 8f2c1206259843399b0e5cbaadb610d49b52b60a18ba4e21898b9375fbd6ee07"
+        x-akita-free-arg: true
+        x-akita-is-sensitive: true
