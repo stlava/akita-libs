@@ -100,6 +100,14 @@ type CreateSpecRequest struct {
 	Tags map[string]string `json:"tags"`
 }
 
+type UploadSpecRequest struct {
+	Name string            `json:"name"`
+	Tags map[string]string `json:"tags,omitempty"`
+
+	// TODO(kku): use multipart/form-data upload once we can support it.
+	Content string `json:"content"`
+}
+
 type ListSessionsResponse struct {
 	Sessions []*LearnSession `json:"sessions"`
 }
