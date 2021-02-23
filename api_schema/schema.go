@@ -108,6 +108,10 @@ type UploadSpecRequest struct {
 	Content string `json:"content"`
 }
 
+type UploadSpecResponse struct {
+	ID akid.APISpecID `json:"id"`
+}
+
 type ListSessionsResponse struct {
 	Sessions []*LearnSession `json:"sessions"`
 }
