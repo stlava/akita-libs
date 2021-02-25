@@ -104,24 +104,33 @@ func isNone(d *pb.Data) bool {
 }
 
 func mergeExampleValues(dst, src *pb.Data) {
-	// Take at most one example each from src and dst.
 	examples := make(map[string]*pb.ExampleValue, 2)
 
+	// Get all (unique) example keys.
+	keySet := make(map[string]struct{}, len(src.ExampleValues)+len(dst.ExampleValues))
 	exampleMaps := []map[string]*pb.ExampleValue{dst.ExampleValues, src.ExampleValues}
 	for _, exampleMap := range exampleMaps {
-		keys := make([]string, 0, len(exampleMap))
 		for k := range exampleMap {
-			keys = append(keys, k)
+			keySet[k] = struct{}{}
+		}
+	}
+	keys := make([]string, 0, len(keySet))
+	for k := range keySet {
+		keys = append(keys, k)
+	}
+
+	// Keep the two smallest example keys, discard the rest.
+	sort.Strings(keys)
+	for _, k := range keys {
+		if v, ok := src.ExampleValues[k]; ok {
+			examples[k] = v
+		} else if v, ok := dst.ExampleValues[k]; ok {
+			examples[k] = v
 		}
 
-		// Sort keys to ensure a stable selection.
-		sort.Strings(keys)
-
-		if len(keys) == 0 {
-			continue
+		if len(examples) >= 2 {
+			break
 		}
-
-		examples[keys[0]] = exampleMap[keys[0]]
 	}
 
 	dst.ExampleValues = examples
