@@ -6,61 +6,68 @@ import (
 	"fmt"
 	"reflect"
 	"strconv"
+	"strings"
 	"unicode"
 
-	"github.com/akitasoftware/akita-libs/visitors"
+	. "github.com/akitasoftware/akita-libs/visitors"
 )
 
-type TraversalOrder int
-
-const (
-	PREORDER = iota
-	POSTORDER
-)
-
-func (t TraversalOrder) String() string {
-	return []string{"PREORDER", "POSTORDER"}[t]
+// Structurally recurses through `node`.
+func Apply(v VisitorManager, node interface{}) Cont {
+	return ApplyWithContext(v, v.Context(), node)
 }
 
-// Structurally recurses through `a`.  At each term, invokes
-//
-//   c, keepGoing := v.Apply(c, v.Visitor(), t)
-//
-// Aborts the traversal if v.Apply returns false.
-//
-func Apply(order TraversalOrder, v visitors.VisitorManager, a interface{}) bool {
-	astv := astVisitor{order: order, vm: v}
-	return astv.visit(v.Context(), a)
+func ApplyWithContext(v VisitorManager, ctx Context, node interface{}) Cont {
+	astv := astVisitor{vm: v}
+	return astv.visit(ctx, node)
 }
 
 type astVisitor struct {
-	order TraversalOrder
-	vm    visitors.VisitorManager
+	vm VisitorManager
 }
 
-func (t *astVisitor) visit(c visitors.Context, m interface{}) bool {
+// Visits the node m, whose context is c. This should never return SkipChildren.
+func (t *astVisitor) visit(c Context, m interface{}) Cont {
 	if m == nil {
-		return true
-	}
-	keepGoing := true
-
-	if t.order == PREORDER {
-		keepGoing = t.vm.Apply(c, t.vm.Visitor(), m)
-		if !keepGoing {
-			return false
-		}
+		return Continue
 	}
 
-	newContext := t.vm.ExtendContext(c, t.vm.Visitor(), m)
+	keepGoing := t.vm.EnterNode(c, t.vm.Visitor(), m)
+	switch keepGoing {
+	case Abort:
+		return Abort
+	case Continue:
+	case SkipChildren:
+	case Stop:
+	default:
+		panic(fmt.Sprintf("Unknown Cont value: %d", keepGoing))
+	}
 
-	// Traverse m's children
+	// Don't visit children if we are stopping or skipping children.
+	if keepGoing == Continue {
+		newContext := t.vm.ExtendContext(c, t.vm.Visitor(), m)
+		keepGoing = t.vm.VisitChildren(newContext, t.vm, m)
+	}
+
+	keepGoing = t.vm.LeaveNode(c, t.vm.Visitor(), m, keepGoing)
+
+	// For convenience, convert SkipChildren into Continue, so that LeaveNode
+	// implementations can just return keepGoing unchanged.
+	if keepGoing == SkipChildren {
+		keepGoing = Continue
+	}
+	return keepGoing
+}
+
+func DefaultVisitChildren(newContext Context, vm VisitorManager, m interface{}) Cont {
 	mt := reflect.TypeOf(m)
 	mv := reflect.ValueOf(m)
 
-	// If we visited a pointer, don't also visit the object; just descend into it
+	// If we visited a pointer, don't also visit the object; just descend into
+	// it.
 	for mt.Kind() == reflect.Ptr {
 		if mv.IsNil() {
-			return true
+			return Continue
 		}
 		mt = mt.Elem()
 		mv = mv.Elem()
@@ -68,29 +75,95 @@ func (t *astVisitor) visit(c visitors.Context, m interface{}) bool {
 
 	// Recurse into data structures.  Extend the context when visiting
 	// children, but not between siblings.
+	astv := astVisitor{vm: vm}
 	if mt.Kind() == reflect.Struct {
-		for i := 0; i < mt.NumField(); i++ {
-			ft := mt.Field(i)
-			fv := mv.Field(i)
-			// Skip private fields and invalid values.
-			if !fv.IsValid() || unicode.IsLower([]rune(ft.Name)[0]) {
-				continue
-			}
-			keepGoing = t.visit(newContext.AppendPath(ft.Name), mv.Field(i).Interface())
+		return astv.visitStructChildren(newContext, mt, mv)
+	}
+
+	if mt.Kind() == reflect.Array || mt.Kind() == reflect.Slice {
+		return astv.visitArrayChildren(newContext, mv)
+	}
+
+	if mt.Kind() == reflect.Map {
+		return astv.visitMapChildren(newContext, mv)
+	}
+
+	return Continue
+}
+
+// Helper for visiting the children of a struct mv having type mt in context
+// ctx.
+func (t *astVisitor) visitStructChildren(ctx Context, mt reflect.Type, mv reflect.Value) Cont {
+	keepGoing := Continue
+	for i := 0; i < mt.NumField(); i++ {
+		ft := mt.Field(i)
+		fv := mv.Field(i)
+
+		// Skip private fields and invalid values.
+		if !fv.IsValid() || unicode.IsLower([]rune(ft.Name)[0]) {
+			continue
 		}
-	} else if mt.Kind() == reflect.Array || mt.Kind() == reflect.Slice {
-		for i := 0; i < mv.Len(); i++ {
-			keepGoing = t.visit(newContext.AppendPath(strconv.Itoa(i)), mv.Index(i).Interface())
+
+		// XXX Skip Protobuf-generated fields, identified by names beginning with
+		// "XXX_"
+		if strings.HasPrefix(ft.Name, "XXX_") {
+			continue
 		}
-	} else if mt.Kind() == reflect.Map {
-		// TODO(cs): Need to visit (k,v), then k, then v for each k, v.
-		for _, k := range mv.MapKeys() {
-			keepGoing = t.visit(newContext.AppendPath(fmt.Sprint(k.Interface())), mv.MapIndex(k).Interface())
+
+		keepGoing = t.visit(ctx.AppendPath(ft.Name), mv.Field(i).Interface())
+
+		switch keepGoing {
+		case Abort, Stop:
+			return keepGoing
+		case Continue:
+		case SkipChildren:
+			panic("astVisitor.visit returned SkipChildren")
+		default:
+			panic(fmt.Sprintf("Unknown Cont value: %d", keepGoing))
 		}
 	}
 
-	if t.order == POSTORDER && keepGoing {
-		keepGoing = t.vm.Apply(c, t.vm.Visitor(), m)
+	return keepGoing
+}
+
+// Helper for visiting the children of an array mv in context ctx.
+func (t *astVisitor) visitArrayChildren(ctx Context, mv reflect.Value) Cont {
+	keepGoing := Continue
+	for i := 0; i < mv.Len(); i++ {
+		keepGoing = t.visit(ctx.AppendPath(strconv.Itoa(i)), mv.Index(i).Interface())
+		switch keepGoing {
+		case Abort:
+			return Abort
+		case Continue:
+		case SkipChildren:
+			panic("astVisitor.visit returned SkipChildren")
+		case Stop:
+			return Stop
+		default:
+			panic(fmt.Sprintf("Unknown Cont value: %d", keepGoing))
+		}
+	}
+
+	return keepGoing
+}
+
+// Helper for visiting the children of a map mv in context ctx.
+func (t *astVisitor) visitMapChildren(ctx Context, mv reflect.Value) Cont {
+	// TODO(cs): Need to visit (k,v), then k, then v for each k, v.
+	keepGoing := Continue
+	for _, k := range mv.MapKeys() {
+		keepGoing = t.visit(ctx.AppendPath(fmt.Sprint(k.Interface())), mv.MapIndex(k).Interface())
+		switch keepGoing {
+		case Abort:
+			return Abort
+		case Continue:
+		case SkipChildren:
+			panic("astVisitor.visit returned SkipChildren")
+		case Stop:
+			return Stop
+		default:
+			panic(fmt.Sprintf("Unknown Cont value: %d", keepGoing))
+		}
 	}
 
 	return keepGoing
