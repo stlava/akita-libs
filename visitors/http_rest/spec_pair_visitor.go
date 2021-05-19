@@ -217,10 +217,21 @@ func (*DefaultSpecPairVisitorImpl) LeaveMethods(self interface{}, c SpecPairVisi
 
 func (*DefaultSpecPairVisitorImpl) VisitMethodArgs(self interface{}, ctxt PairContext, vm PairVisitorManager, leftArgs, rightArgs map[string]*pb.Data) Cont {
 	keepGoing := Continue
+	specPairContext := ctxt.(SpecPairVisitorContext)
+
+	// Obtain the methods' HTTP metadata from the context.
+	leftMethodMeta := (*pb.HTTPMethodMeta)(nil)
+	rightMethodMeta := (*pb.HTTPMethodMeta)(nil)
+	{
+		leftNode, rightNode, _ := specPairContext.GetInnermostNode(reflect.TypeOf((*pb.Method)(nil)))
+		leftMethodMeta = leftNode.(*pb.Method).GetMeta().GetHttp()
+		rightMethodMeta = rightNode.(*pb.Method).GetMeta().GetHttp()
+	}
 
 	// Normalize arguments on both sides.
-	normalizedLeft := GetNormalizedArgNames(leftArgs)
-	normalizedRight := GetNormalizedArgNames(rightArgs)
+	// XXX Ignoring errors.
+	normalizedLeft, _ := GetNormalizedArgNames(leftArgs, leftMethodMeta)
+	normalizedRight, _ := GetNormalizedArgNames(rightArgs, rightMethodMeta)
 
 	// Line up left arguments with the right and visit in pairs. Remove any
 	// matching arguments on the right.

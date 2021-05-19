@@ -476,10 +476,16 @@ func extendContext(cin Context, node interface{}) {
 				ctx.setValueType(BODY)
 				name = x.GetContentType().String()
 				named = false
+			} else if x := meta.GetEmpty(); x != nil {
+				ctx.setValueType(BODY)
+				named = false
 			} else if x := meta.GetAuth(); x != nil {
 				ctx.setValueType(AUTH)
 				ctx.setHttpAuthType(x.GetType())
 				name = "Authorization"
+				named = false
+			} else if x := meta.GetMultipart(); x != nil {
+				ctx.setValueType(BODY)
 				named = false
 			}
 
@@ -489,10 +495,6 @@ func extendContext(cin Context, node interface{}) {
 
 			ctx.appendRestPath(ctx.GetValueType().String())
 			ctx.appendRestPath(name)
-
-			if node.GetOptional() != nil {
-				ctx.setIsOptional()
-			}
 
 			// Do nothing for HTTPEmpty
 		} else {
@@ -513,6 +515,10 @@ func extendContext(cin Context, node interface{}) {
 
 			// Update the REST path.
 			ctx.appendRestPath(astPathEdge.String())
+		}
+
+		if node.GetOptional() != nil {
+			ctx.setIsOptional()
 		}
 	}
 }
