@@ -457,9 +457,11 @@ func extendContext(cin Context, node interface{}) {
 				ctx.setResponseCode(responseCode)
 			}
 
-			// Figure out the name and kind of parameter being visited.
+			// Figure out the name and kind of parameter being visited. If visiting a
+			// body, also figure out its content type.
 			var name string
 			named := true
+			var contentType *string = nil
 			if x := meta.GetPath(); x != nil {
 				ctx.setValueType(PATH)
 				name = x.GetKey()
@@ -475,9 +477,12 @@ func extendContext(cin Context, node interface{}) {
 			} else if x := meta.GetBody(); x != nil {
 				ctx.setValueType(BODY)
 				name = x.GetContentType().String()
+				contentType = &name
 				named = false
 			} else if x := meta.GetEmpty(); x != nil {
 				ctx.setValueType(BODY)
+				unknown := pb.HTTPBody_UNKNOWN.String()
+				contentType = &unknown
 				named = false
 			} else if x := meta.GetAuth(); x != nil {
 				ctx.setValueType(AUTH)
@@ -486,11 +491,17 @@ func extendContext(cin Context, node interface{}) {
 				named = false
 			} else if x := meta.GetMultipart(); x != nil {
 				ctx.setValueType(BODY)
+				unknown := pb.HTTPBody_UNKNOWN.String()
+				contentType = &unknown
 				named = false
 			}
 
 			if named {
 				ctx.appendFieldPath(NewFieldName(name))
+			}
+
+			if contentType != nil {
+				ctx.setContentType(*contentType)
 			}
 
 			ctx.appendRestPath(ctx.GetValueType().String())
