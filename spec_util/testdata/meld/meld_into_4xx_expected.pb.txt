@@ -24,8 +24,41 @@ method: {
         }
       }
       example_values: {
+        key: "f2"
+        value: {}
+      }
+      example_values: {
         key: "f1"
         value: {}
+      }
+    }
+  }
+  responses: {
+    key: "ui5EpupUcWM="
+    value: {
+      struct: {
+        fields: {
+          key: "name"
+          value: {
+            primitive: {
+              string_value: {
+                value: "file_1"
+              }
+              formats: {
+                key: "ISOYearMonthDay"
+                value: true
+              }
+            }
+          }
+        }
+      }
+      meta: {
+        http: {
+          body: {
+            content_type: JSON
+          }
+          response_code: 403
+        }
       }
     }
   }
