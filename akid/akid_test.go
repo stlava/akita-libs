@@ -44,6 +44,8 @@ func TestBaseAkitaIDParse(t *testing.T) {
 		akitaIDParseTest{"usr_21raAVTqUKOHvmxgK0ySCZ", "usr", true},
 		akitaIDParseTest{"lrn_7IObUDuFf0fddZ4Ix1DPAC", "lrn", true},
 		akitaIDParseTest{"svc_6NiejyYEVpWfziUXJgovV6", "svc", true},
+		akitaIDParseTest{"svc_s8VseBBxopFn5eDnVEoRa", "svc", true},
+		akitaIDParseTest{"svc_0s8VseBBxopFn5eDnVEoRa", "svc", true},
 		// failure case because xxx is not in the set of valid ID prefixes
 		akitaIDParseTest{"xxx_21raAVTqUKOHvmxgK0ySCZ", "xxx", false},
 		akitaIDParseTest{"f!o_21raAVTqUKOHvmxgK0ySCZ", "f!o", false},
