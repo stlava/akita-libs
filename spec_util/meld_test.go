@@ -153,6 +153,14 @@ var tests = []testData{
 		},
 		"testdata/meld/meld_no_examples_3.pb.txt",
 	},
+	{
+		"optional field",
+		[]string{
+			"testdata/meld/meld_optional_1.pb.txt",
+			"testdata/meld/meld_optional_2.pb.txt",
+		},
+		"testdata/meld/meld_optional_expected.pb.txt",
+	},
 	// Test melding non-4xx with 4xx.
 	{
 		"4xx example, example",
