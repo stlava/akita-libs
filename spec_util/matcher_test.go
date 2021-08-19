@@ -25,7 +25,25 @@ func testMethod(operation string, template string) *pb.Method {
 				Http: &pb.HTTPMethodMeta{
 					Method:       operation,
 					PathTemplate: template,
-					Host:         "",
+					Host:         "localhost:5000",
+				},
+			},
+		},
+	}
+}
+
+func testMethodWithHost(operation string, host string, template string) *pb.Method {
+	return &pb.Method{
+		Id: &pb.MethodID{
+			Name:    "fake_name",
+			ApiType: pb.ApiType_HTTP_REST,
+		},
+		Meta: &pb.MethodMeta{
+			Meta: &pb.MethodMeta_Http{
+				Http: &pb.HTTPMethodMeta{
+					Method:       operation,
+					PathTemplate: template,
+					Host:         host,
 				},
 			},
 		},
@@ -155,6 +173,76 @@ func TestMultipleMethodMatching(t *testing.T) {
 	}
 	for _, tc := range testCases {
 		actual := m.Lookup(tc.TestOperation, tc.TestPath)
+		if actual != tc.ExpectedMatch {
+			t.Errorf("expected %q but got %q for input %s %s", tc.ExpectedMatch, actual, tc.TestOperation, tc.TestPath)
+		}
+	}
+}
+
+func TestHostMatching(t *testing.T) {
+	spec := &pb.APISpec{
+		Methods: []*pb.Method{
+			testMethodWithHost("GET", "api-server", "/users/{arg2}/files"),
+			testMethodWithHost("GET", "api-server", "/users/{arg2}"),
+			testMethodWithHost("GET", "api-server:8000", "/users/{xyz}/files"),
+		},
+	}
+	m, err := NewMethodMatcher(spec)
+	if err != nil {
+		t.Fatal(err)
+	}
+	testCases := []struct {
+		TestOperation string
+		TestHost      string
+		TestPath      string
+		ExpectedMatch string
+	}{
+		{
+			"GET",
+			"localhost",
+			"/users/2b9046ac-6112-11eb-ae07-3e22fb0d9111",
+			"/users/2b9046ac-6112-11eb-ae07-3e22fb0d9111",
+		},
+		{
+			"GET",
+			"api-server",
+			"/users/2b9046ac-6112-11eb-ae07-3e22fb0d9222",
+			"/users/{arg2}",
+		},
+		{
+			"GET",
+			"api-server",
+			"/users/2b9046ac-6112-11eb-ae07-3e22fb0d9333/files",
+			"/users/{arg2}/files",
+		},
+		{
+			"GET",
+			"api-server",
+			"/users/2b9046ac-6112-11eb-ae07-3e22fb0d9444/other",
+			"/users/2b9046ac-6112-11eb-ae07-3e22fb0d9444/other",
+		},
+		{
+			"GET",
+			"api-server:8000",
+			"/users/2b9046ac-6112-11eb-ae07-3e22fb0d9555/files",
+			"/users/{xyz}/files",
+		},
+		{
+			"POST",
+			"api-server:8000",
+			"/users/2b9046ac-6112-11eb-ae07-3e22fb0d9555/files",
+			"/users/2b9046ac-6112-11eb-ae07-3e22fb0d9555/files",
+		},
+		{
+			"GET",
+			"api-server:8000",
+			"/users/2b9046ac-6112-11eb-ae07-3e22fb0d9666",
+			"/users/2b9046ac-6112-11eb-ae07-3e22fb0d9666",
+		},
+	}
+
+	for _, tc := range testCases {
+		actual := m.LookupWithHost(tc.TestOperation, tc.TestHost, tc.TestPath)
 		if actual != tc.ExpectedMatch {
 			t.Errorf("expected %q but got %q for input %s %s", tc.ExpectedMatch, actual, tc.TestOperation, tc.TestPath)
 		}
