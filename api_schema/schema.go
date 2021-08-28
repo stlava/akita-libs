@@ -329,6 +329,7 @@ type TimelineEvent struct {
 // They correspond with the keys in the response below.
 const (
 	Aggr_Count  TimelineAggregation = "count"  // count of events within bucket
+	Aggr_Rate                       = "rate"   // rate in events per minute
 	Aggr_Max                        = "max"    // max of latency and RTT
 	Aggr_Min                        = "min"    // min of latency and RTT
 	Aggr_Mean                       = "mean"   // arithmetic mean of latency and RTT
@@ -341,7 +342,7 @@ const (
 // These are the available keys for Timeline.Values.
 const (
 	Event_Count          TimelineValue = "count"          // count of events within bucket
-	Event_Rate                         = "rate"           // rate in events per minutes
+	Event_Rate                         = "rate"           // rate in events per minute
 	Event_Latency                      = "latency"        // processing latency in milliseconds
 	Event_Latency_Max                  = "latency_max"    // maximum latency
 	Event_Latency_Min                  = "latency_min"    // minimum latency
