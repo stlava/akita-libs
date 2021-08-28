@@ -384,5 +384,5 @@ type TimelineResponse struct {
 	Timelines []Timeline `json:"timelines"`
 
 	// If incomplete due to limit, the first unreported start time
-	NextStartTime *time.Time `json:"next_start_time"`
+	NextStartTime *time.Time `json:"next_start_time,omitempty"`
 }
