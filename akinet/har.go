@@ -81,6 +81,9 @@ func (r *HTTPRequest) FromHAR(h *har.Request) error {
 }
 
 func (r *HTTPResponse) FromHAR(h *har.Response) error {
+	if h.Status < 200 || h.Status > 599 {
+		return errors.Errorf("status code %v out of range", h.Status)
+	}
 	r.StatusCode = h.Status
 
 	// HTTP version
