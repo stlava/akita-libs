@@ -12,13 +12,11 @@ func TestIntervalOverlap(t *testing.T) {
 		start2          int
 		end2            int
 		overlapClosed   bool // expected value of overlap for interval type
-		overlapOpen     bool
 		overlapHalfOpen bool
 	}{
 		{
 			0, 10,
 			20, 30,
-			false,
 			false,
 			false,
 		},
@@ -27,12 +25,10 @@ func TestIntervalOverlap(t *testing.T) {
 			5, 15,
 			true,
 			true,
-			true,
 		},
 		{
 			0, 10,
 			0, 10,
-			true,
 			true,
 			true,
 		},
@@ -40,7 +36,6 @@ func TestIntervalOverlap(t *testing.T) {
 			0, 10,
 			10, 20,
 			true,
-			false,
 			false,
 		},
 		{
@@ -48,7 +43,18 @@ func TestIntervalOverlap(t *testing.T) {
 			10, 20,
 			true,
 			false,
-			true,
+		},
+		{
+			15, 0,
+			10, 20,
+			true,  // because closed constructor reverses the order
+			false, // because half-open takes the arguments as-is
+		},
+		{
+			15, 1,
+			16, 0,
+			true,  // [1,15] inside [0,16]
+			false, // [15,1) not inside empty interval [16,0)
 		},
 	}
 
@@ -60,8 +66,6 @@ func TestIntervalOverlap(t *testing.T) {
 		end2 := time.Date(2020, 1, 1, 0, 0, tc.end2, 0, time.UTC)
 		ci1 := NewClosedInterval(start1, end1)
 		ci2 := NewClosedInterval(start2, end2)
-		oi1 := NewOpenInterval(start1, end1)
-		oi2 := NewOpenInterval(start2, end2)
 		hoi1 := NewHalfOpenInterval(start1, end1)
 		hoi2 := NewHalfOpenInterval(start2, end2)
 
@@ -72,15 +76,6 @@ func TestIntervalOverlap(t *testing.T) {
 		actual = ci2.Overlaps(ci1)
 		if actual != tc.overlapClosed {
 			t.Errorf("reversed closed expected %v got %v", tc.overlapClosed, actual)
-		}
-
-		actual = oi1.Overlaps(oi2)
-		if actual != tc.overlapOpen {
-			t.Errorf("open expected %v got %v", tc.overlapOpen, actual)
-		}
-		actual = oi2.Overlaps(oi1)
-		if actual != tc.overlapOpen {
-			t.Errorf("reversed open expected %v got %v", tc.overlapOpen, actual)
 		}
 
 		actual = hoi1.Overlaps(hoi2)
@@ -100,7 +95,7 @@ func TestIntervalContains(t *testing.T) {
 		end1     int
 		start2   int
 		end2     int
-		expected bool // results are same for all three types, fortunately, but only HO is implemented
+		expected bool // only HO is implemented
 	}{
 		{
 			0, 10,
@@ -146,6 +141,16 @@ func TestIntervalContains(t *testing.T) {
 			0, 5,
 			0, 10,
 			false,
+		},
+		{
+			10, 15,
+			5, 0,
+			true, // empty interval is contained in any nonempty interval
+		},
+		{
+			15, 0,
+			5, 0,
+			false, // empty interval cannot contain anything
 		},
 	}
 
