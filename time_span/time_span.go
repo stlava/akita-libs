@@ -163,8 +163,13 @@ func (t HalfOpenInterval) Intersect(t2 HalfOpenInterval) HalfOpenInterval {
 	}
 }
 
-// Return the "union" of two half-open intervals, along with everything in between.
-// TOOD: I don't know if this has a nice mathematical name.
+// Return the region between and including two half-open intervals.
+// The result is the maximum of end times and the minimum of start times,
+// so for an empty interval "between" depends on the representative.
+//
+// The important use case for handling events is that the zero-length interval
+// [a,a) can be combined with a non-empty interval [b,c) not including a
+// to produce [a,c) or [b,a).
 func (t HalfOpenInterval) Combine(t2 HalfOpenInterval) HalfOpenInterval {
 	return HalfOpenInterval{
 		Start: MinTime(t.Start, t2.Start), // earlier of the two starts
