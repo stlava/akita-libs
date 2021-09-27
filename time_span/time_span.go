@@ -11,7 +11,7 @@ func MinTime(a time.Time, b time.Time) time.Time {
 	}
 }
 
-// Return the kater of the two times
+// Return the later of the two times
 func MaxTime(a time.Time, b time.Time) time.Time {
 	if a.Before(b) {
 		return b
