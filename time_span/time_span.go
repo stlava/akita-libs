@@ -26,6 +26,7 @@ type BaseInterval struct {
 }
 
 // A closed interval of time.
+// Empty intervals are represented by having Start > End.
 type ClosedInterval BaseInterval
 
 func NewClosedInterval(start time.Time, end time.Time) ClosedInterval {
@@ -53,7 +54,7 @@ func (span ClosedInterval) Duration() time.Duration {
 
 // Determines whether the span includes the given query.
 func (span ClosedInterval) Includes(query time.Time) bool {
-	return span.Start.Before(query) && query.Before(span.End) || span.Start.Equal(query) || span.End.Equal(query)
+	return !(span.Empty() || query.Before(span.Start) || query.After(span.End))
 }
 
 // Extend an interval by "delta" in each direction (thus it gets 2*delta longer.)
@@ -103,6 +104,7 @@ func (t ClosedInterval) Combine(t2 ClosedInterval) ClosedInterval {
 }
 
 // An half-open interval [start,end)
+// Empty intervals are represented by having Start >= End.
 type HalfOpenInterval BaseInterval
 
 func NewHalfOpenInterval(start time.Time, end time.Time) HalfOpenInterval {
