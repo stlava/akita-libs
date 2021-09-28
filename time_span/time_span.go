@@ -92,6 +92,16 @@ func (t1 ClosedInterval) Overlaps(t2 ClosedInterval) bool {
 		(!t1.Empty() && !t2.Empty())
 }
 
+// Return the smallest interval containing the start and end points of the
+// two intervals, even if they are empty.
+// That is, the maximum of end times and the minimum of start times.
+func (t ClosedInterval) Combine(t2 ClosedInterval) ClosedInterval {
+	return ClosedInterval{
+		Start: MinTime(t.Start, t2.Start), // earlier of the two starts
+		End:   MaxTime(t.End, t2.End),     // later of the two ends
+	}
+}
+
 // An half-open interval [start,end)
 type HalfOpenInterval BaseInterval
 
