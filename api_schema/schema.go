@@ -14,8 +14,7 @@ import (
 type NetworkDirection string
 
 const (
-	Inbound  NetworkDirection = "INBOUND"
-	Outbound NetworkDirection = "OUTBOUND"
+	Inbound NetworkDirection = "INBOUND"
 )
 
 type APISpecState string
