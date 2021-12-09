@@ -35,12 +35,12 @@ type ParsedNetworkTraffic struct {
 // Interface implemented by all types of data that can be parsed from the
 // network.
 type ParsedNetworkContent interface {
-	implParsedNetworkContent()
+	ImplParsedNetworkContent()
 }
 
 type RawBytes memview.MemView
 
-func (RawBytes) implParsedNetworkContent() {}
+func (RawBytes) ImplParsedNetworkContent() {}
 
 func (rb RawBytes) String() string {
 	return memview.MemView(rb).String()
@@ -67,7 +67,7 @@ type TCPPacketMetadata struct {
 	PayloadLength_bytes int
 }
 
-func (TCPPacketMetadata) implParsedNetworkContent() {}
+func (TCPPacketMetadata) ImplParsedNetworkContent() {}
 
 // Represents metadata from an observed TCP connection.
 type TCPConnectionMetadata struct {
@@ -81,7 +81,7 @@ type TCPConnectionMetadata struct {
 	EndState TCPConnectionEndState
 }
 
-func (TCPConnectionMetadata) implParsedNetworkContent() {}
+func (TCPConnectionMetadata) ImplParsedNetworkContent() {}
 
 // Identifies which of the two endpoints of a connection initiated that
 // connection.
@@ -127,7 +127,7 @@ type HTTPRequest struct {
 	Cookies          []*http.Cookie
 }
 
-func (HTTPRequest) implParsedNetworkContent() {}
+func (HTTPRequest) ImplParsedNetworkContent() {}
 
 // Returns a string key that associates this request with its corresponding
 // response.
@@ -149,7 +149,7 @@ type HTTPResponse struct {
 	Cookies          []*http.Cookie
 }
 
-func (HTTPResponse) implParsedNetworkContent() {}
+func (HTTPResponse) ImplParsedNetworkContent() {}
 
 // Returns a string key that associates this response with its corresponding
 // request.
@@ -170,7 +170,7 @@ type TLSClientHello struct {
 	SupportedProtocols []string
 }
 
-func (TLSClientHello) implParsedNetworkContent() {}
+func (TLSClientHello) ImplParsedNetworkContent() {}
 
 // Represents metadata from an observed TLS 1.2 or 1.3 Server Hello message.
 type TLSServerHello struct {
@@ -190,7 +190,7 @@ type TLSServerHello struct {
 	DNSNames []string
 }
 
-func (TLSServerHello) implParsedNetworkContent() {}
+func (TLSServerHello) ImplParsedNetworkContent() {}
 
 // Metadata from an observed TLS handshake.
 type TLSHandshakeMetadata struct {
@@ -219,7 +219,7 @@ type TLSHandshakeMetadata struct {
 	serverHandshakeSeen bool
 }
 
-func (TLSHandshakeMetadata) implParsedNetworkContent() {}
+func (TLSHandshakeMetadata) ImplParsedNetworkContent() {}
 
 func (tls *TLSHandshakeMetadata) HandshakeComplete() bool {
 	return tls.clientHandshakeSeen && tls.serverHandshakeSeen
@@ -334,9 +334,9 @@ func (tls *TLSHandshakeMetadata) ApplicationLatencyMeasurable() bool {
 // For testing only.
 type AkitaPrince string
 
-func (AkitaPrince) implParsedNetworkContent() {}
+func (AkitaPrince) ImplParsedNetworkContent() {}
 
 // For testing only.
 type AkitaPineapple string
 
-func (AkitaPineapple) implParsedNetworkContent() {}
+func (AkitaPineapple) ImplParsedNetworkContent() {}
